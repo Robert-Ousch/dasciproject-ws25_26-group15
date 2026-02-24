@@ -1,4 +1,4 @@
 alexander = 2
-hauke = 1
+hauke = 15
 jakob = 1
 robert = 4

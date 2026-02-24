@@ -1,5 +1,5 @@
-alexander = 2
-hauke = 1
-jakob = 12
-robert = 1
+alexander = 3
+hauke = 15
+jakob = 1
+robert = 4
 

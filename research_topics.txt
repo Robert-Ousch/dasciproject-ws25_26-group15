@@ -1,4 +1,5 @@
 Privacy Policies
+https://privacypolicies.cs.princeton.edu/ghfront/
 -A:
 -A:
 
@@ -13,7 +14,7 @@ Privacy Policies
 
 
 
--R: What new aspects of privacy concerns have risen since 2020? (New buzzwords, phrases, etc.)
+-R: What new aspects of privacy concerns have risen from 2000 to 2020? (New buzzwords, phrases, etc.)
 -R: Which specific events caused changes in these concerns? (Lawsuits, databreaches, etc.)
 -R(Spare): In the case of databreaches, is there a discernable type of company that was targeted? If so, which specifically?
 

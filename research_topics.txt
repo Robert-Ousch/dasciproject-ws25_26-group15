@@ -35,11 +35,10 @@ https://www.bka.de/EN/CurrentInformation/Statistics/PoliceCrimeStatistics/police
 https://data.police.uk/docs/
 
 
--R: 
--R: 
+-R: How do funds for police departments affect crime rates in highly populated areas (i.e big cities)? (=> Are more crimes detected? Do crimes happen less often?)
+-R: How do the number of thefts and fraud-adjacent crimes correlate to the development of the average and median wages/salaries in Germany? 
 
   
-
 Transport
 -A:
 -A:
@@ -55,7 +54,7 @@ Transport
 
 
 
--R: 
--R: 
+-R: In what ways does public transport (bus, train connections) affect migration from smaller towns to cities? (i.e does a better connection lower the number of people moving to big cities?)
+-R: How do german towns of similiar size compare economically based on if they have a tram connection or not?
 
 

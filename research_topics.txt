@@ -39,7 +39,7 @@ https://data.police.uk/docs/
 -R: How do the number of thefts and fraud-adjacent crimes correlate to the development of the average and median wages/salaries in Germany? 
 
   
-Transport
+spatial distribution of public transport
 -A: type of public Transport available / mostly used and correlation with city size (in Germany)
 -A: type of public Transport available / mostly used and correlation with geographical conditions of that city (in Germany)
 -A: type of public Transport available / mostly used and correlation with country location

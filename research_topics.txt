@@ -4,8 +4,8 @@ https://privacypolicies.cs.princeton.edu/ghfront/
 -A:
 
 
--H:
--H:
+-H: How do companies that collect a lot of data justify/express this in their privacy policy?
+-H: How strongly do the data collection practices of multinational companies differ across the globe?
 
 
 
@@ -25,8 +25,8 @@ https://www.bka.de/EN/CurrentInformation/Statistics/PoliceCrimeStatistics/police
 -A:
 
 
--H:
--H:
+-H: Are direct prevention measures or broader socio-economic/political changes more effctive in reducing crime rates in Germany?
+-H: Do major crime events (eg. widely televised homicides) have a short-term impact on overall crime rates?
 
 
 
@@ -45,8 +45,8 @@ Transport
 -A:
 
 
--H:
--H:
+-H: Do towns that are well connected to public transport perform better economically (or in living satisfaction indices)?
+-H: Does a short-term decrease in the reliability of public transport correlate with higher car usage in big cities?
 
 
 

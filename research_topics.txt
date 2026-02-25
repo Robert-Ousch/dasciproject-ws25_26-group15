@@ -9,7 +9,7 @@ https://privacypolicies.cs.princeton.edu/ghfront/
 
 
 
--J:
+-J: Is there a correlation between national privacy policies and the amount of data breaches?
 -J:
 
 
@@ -30,8 +30,8 @@ https://www.bka.de/EN/CurrentInformation/Statistics/PoliceCrimeStatistics/police
 
 
 
--J:
--J:
+-J: How do socio-economical factors effect the crime rate in big cities?
+-J: Does Urbanization have an effect on the development of crime rates?
 https://data.police.uk/docs/
 
 
@@ -50,8 +50,8 @@ Transport
 
 
 
--J:
--J:
+-J: What effect has the expansion of local transport on the co2 emmissions of a city?
+-J: Is local transport usage statistically associated with specific crime patterns across time?(rush hour etc)
 
 
 

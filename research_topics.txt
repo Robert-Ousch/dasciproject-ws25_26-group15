@@ -1,7 +1,7 @@
 Privacy Policies
 https://privacypolicies.cs.princeton.edu/ghfront/
--A:
--A:
+-A: what are differences in the privacy policies of companies from Germany in comparison to companies from other European countries? How does this correlate to the laws of the different countries about privacy policies?
+-A: Is there a correlation between the kind of information / between the use of information gathered between companies that advertise for children vs. for adults?
 
 
 -H: How do companies that collect a lot of data justify/express this in their privacy policy?

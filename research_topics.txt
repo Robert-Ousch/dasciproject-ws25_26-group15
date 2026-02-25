@@ -40,8 +40,9 @@ https://data.police.uk/docs/
 
   
 Transport
--A: type of public Transport, correlation with City size, correlation with global position
--A:
+-A: type of public Transport available / mostly used and correlation with city size (in Germany)
+-A: type of public Transport available / mostly used and correlation with geographical conditions of that city (in Germany)
+-A: type of public Transport available / mostly used and correlation with country location
 
 
 -H: Do towns that are well connected to public transport perform better economically (or in living satisfaction indices)?

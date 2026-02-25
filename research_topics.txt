@@ -10,7 +10,7 @@ https://privacypolicies.cs.princeton.edu/ghfront/
 
 
 -J: Is there a correlation between national privacy policies and the amount of data breaches?
--J:
+-J: Do Data Protection Laws increase consumer trust in digital services?
 
 
 

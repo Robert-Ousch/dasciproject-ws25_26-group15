@@ -21,8 +21,8 @@ https://privacypolicies.cs.princeton.edu/ghfront/
 
 Crime Rates
 https://www.bka.de/EN/CurrentInformation/Statistics/PoliceCrimeStatistics/policecrimestatistics_node.html
--A:
--A:
+-A: How does the distribution of the type of crimes commited in Germany/ UK change over the span of a year? (consider last 10 years, take average)
+-A: How does the type of crimes / crimes with firearms differ between regions with different population sizes? Is this distribution similar between Germany and the UK? Is this correlated to the sale of firearms in that region?
 
 
 -H: Are direct prevention measures or broader socio-economic/political changes more effctive in reducing crime rates in Germany?
@@ -41,7 +41,7 @@ https://data.police.uk/docs/
   
 
 Transport
--A:
+-A: type of public Transport, correlation with City size, correlation with global position
 -A:
 
 

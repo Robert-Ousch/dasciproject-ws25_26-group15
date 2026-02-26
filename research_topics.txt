@@ -36,7 +36,7 @@ Benötigt: Bevölkerungsgrößen verschiedener Regionen
 10. Which kind of crimes are committed farther away from police stations?
   
 
-spatial distribution of public Transport
+spatial distribution of public transport
 https://overpass-api.de/api/
 example: https://overpass-api.de/api/map?bbox=9.980146,53.542730,9.985778,53.544786
 https://de.wikipedia.org/wiki/Liste_der_deutschen_Städte_nach_Bruttoinlandsprodukt
@@ -54,7 +54,17 @@ https://cities.carbonmonitor.org/
 9. Are the public transport stops closer to hospitals more wheelchair accessible?
 
 
+football
+https://www.api-football.com/documentation-v3
+https://www.openligadb.de/
+https://open-meteo.com/
 
-
-
-
+1. When during a match are scored the most goals (and for which team)?
+2. Is there a correlation between success of certain German teams and high rain? 
+3. How is the correlation between total goal scored during a match and high rain?
+4. How many goals are scored on average before a player is transferred to another team?
+5. What is the correlation between the success of a coach and their time at the team? What is the difference for teams?
+6. How do the ratings of a player change in the year after transferring to a different team?
+7. Which teams scored goals most often at home turf in 2024?
+8. During the span of the last ten years, when did Holstein Kiel score goals most often in their opponents city?
+9. Is there a correlation between venue size and the win rate of the away team?

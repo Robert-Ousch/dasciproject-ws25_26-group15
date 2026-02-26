@@ -18,10 +18,9 @@ Crime Rates
 https://www.bka.de/EN/CurrentInformation/Statistics/PoliceCrimeStatistics/policecrimestatistics_node.html
 https://data.police.uk/docs/
 Dokumentation: https://police-api-client-python.readthedocs.io/en/latest/
-List of Terror attacks in UK [Link]
-Local Deprevation Score of UK [Link] 
-Salary Development in UK [Link]
-Stop and Searches in UK [Link]
+List of Terror attacks in UK https://de.wikipedia.org/wiki/Liste_von_Terroranschlägen_im_Vereinigten_Königreich
+Local Deprivation Score of UK https://deprivation.communities.gov.uk/download-all
+Salary Development in UK https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/datasets/averageweeklyearnings
 Benötigt: Bevölkerungsgrößen verschiedener Regionen
 
 

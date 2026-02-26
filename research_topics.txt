@@ -3,15 +3,15 @@ https://privacypolicies.cs.princeton.edu/ghfront/
 https://www.enforcementtracker.com/
 
 
-1. what are differences in the privacy policies of companies from Germany in comparison to companies from other European countries? 
-2. Is there a correlation between the kind of information / between the use of information gathered between companies categorized under "advertisement" vs "streaming media"?
-3. How do the policies of companies that have been heavily/often fined under the gdpr differ from other companies?
-4. For companies with different policies for different regions, how do these alternatives differ? 
-5. *Is there a correlation ("Insufficient technical and orginasitional measures to ensure information security")?*
-6. 
-7. What new aspects of privacy concerns have risen from 2000 to 2020? (New buzzwords, phrases, etc.)
-8. *Which specific events caused changes in these concerns? (Lawsuits, databreaches, etc.)*
-(9.) In the case of databreaches, is there a discernable type of company that was targeted? If so, which specifically?
+1. what are keywords of privacy policies of companies from Germany in comparison to companies from other European countries? 
+2. Is there a correlation between the kind of information gathered between companies categorized under "advertisement" vs "streaming media"?
+3. Is there a correlation between the use of information gathered between companies categorized under "advertisement" vs "streaming media"?
+4. How do the policies of companies that have been heavily/ often fined under the GDPR differ from other companies?
+5. For companies with different policies for different regions, how do these alternatives differ? 
+6. What new aspects of privacy concerns have risen from 2000 to 2020? (New keywords, phrases, etc.)
+7. 
+8. 
+9. 
 
 
 Crime Rates
@@ -34,25 +34,28 @@ Benötigt: Bevölkerungsgrößen verschiedener Regionen
 7. In the case of stop-and-searches in the UK, to which degree are these cases racially motivated?
 8. How do the number of thefts and fraud-adjacent crimes correlate to the development of the wages/salaries in UK?
 9. How do different age groups compare in committing theft vs violent crime vs idk?
+10. Which kind of crimes are committed farther away from police stations?
   
+
 spatial distribution of public Transport
-API räumliche Verteilung von Städten in Land x
 https://overpass-api.de/api/
-BSP: https://overpass-api.de/api/map?bbox=9.980146,53.542730,9.985778,53.544786
-Dokumentation: https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_API_by_Example
-
-1. type of public Transport available / mostly used and correlation with city size (in Germany)
-2. type of public Transport available / mostly used and correlation with geographical conditions of that city (in Germany)
-3. type of public Transport available / mostly used and correlation with country location
+example: https://overpass-api.de/api/map?bbox=9.980146,53.542730,9.985778,53.544786
+https://de.wikipedia.org/wiki/Liste_der_deutschen_Städte_nach_Bruttoinlandsprodukt
+https://cities.carbonmonitor.org/
 
 
-4. Do towns that are well connected to public transport perform better economically (or in living satisfaction indices)?
-5. Does a short-term decrease in the reliability of public transport correlate with higher car usage in big cities?
+1. How do the type of public transport available and city size (in Germany) correlate?
+2. How do the type of public transport available and location of city (in Germany, worldwide) correlate?
+3. What effect does type of public transport available have on the co2 emmissions of a city?
+4. Do cities with higher availability of public transport (number of stops relative to city size) perform better economically?
+5. What effect does the availability of public transport (number of stops relative to city size) have on the co2 emmissions of a city?
+6. What is the correlation between availability of public transport (number of stops relative to city size) and location of the city?
+7. How do cities compare economically based on if they have a tram connection or not?
+8. Which type of public transport stop is most wheelchair accessible?
+9. Are the public transport stops closer to hospitals more wheelchair accessible?
 
 
-6. What effect has the expansion of local transport on the co2 emmissions of a city?
-7. Is local transport usage statistically associated with specific crime patterns across time?(rush hour etc)
 
 
-8. In what ways does public transport (bus, train connections) affect migration from smaller towns to cities? (i.e does a better connection lower the number of people moving to big cities?)
-9. How do german towns of similiar size compare economically based on if they have a tram connection or not?
+
+

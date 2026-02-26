@@ -22,8 +22,9 @@ https://www.enforcementtracker.com/
 
 
 Crime Rates
-https://www.bka.de/EN/CurrentInformation/Statistics/PoliceCrimeStatistics/policecrimestatistics_node.html - evtl API crime statistic anderes Land
+https://www.bka.de/EN/CurrentInformation/Statistics/PoliceCrimeStatistics/policecrimestatistics_node.html
 https://data.police.uk/docs/
+Dokumentation: https://police-api-client-python.readthedocs.io/en/latest/
 
 -A: How does the distribution of the type of crimes commited in Germany/ UK change over the span of a year? (consider last 10 years, take average)
 -A: How does the type of crimes / crimes with firearms differ between regions with different population sizes? Is this distribution similar between Germany and the UK? Is this correlated to the sale of firearms in that region?
@@ -63,5 +64,3 @@ Dokumentation: https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_API_by_
 
 -R: In what ways does public transport (bus, train connections) affect migration from smaller towns to cities? (i.e does a better connection lower the number of people moving to big cities?)
 -R: How do german towns of similiar size compare economically based on if they have a tram connection or not?
-
-

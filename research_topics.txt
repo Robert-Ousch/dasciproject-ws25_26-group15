@@ -3,45 +3,37 @@ https://privacypolicies.cs.princeton.edu/ghfront/
 https://www.enforcementtracker.com/
 
 
--A: what are differences in the privacy policies of companies from Germany in comparison to companies from other European countries? 
--A: Is there a correlation between the kind of information / between the use of information gathered between companies that advertise for children vs. for adults?
-
-
--H: How do companies that collect a lot of data justify/express this in their privacy policy?
--H: How strongly do the data collection practices of multinational companies differ across the globe?
-
-
--J: Is there a correlation between national privacy policies and the amount of data breaches?
--J: Do Data Protection Laws increase consumer trust in digital services?
-
-
--R: What new aspects of privacy concerns have risen from 2000 to 2020? (New buzzwords, phrases, etc.)
--R: Which specific events caused changes in these concerns? (Lawsuits, databreaches, etc.)
--R(Spare): In the case of databreaches, is there a discernable type of company that was targeted? If so, which specifically?
-
+1. what are differences in the privacy policies of companies from Germany in comparison to companies from other European countries? 
+2. Is there a correlation between the kind of information / between the use of information gathered between companies categorized under "advertisement" vs "streaming media"?
+3. How do the policies of companies that have been heavily/often fined under the gdpr differ from other companies?
+4. For companies with different policies for different regions, how do these alternatives differ? 
+5. *Is there a correlation ("Insufficient technical and orginasitional measures to ensure information security")?*
+6. 
+7. What new aspects of privacy concerns have risen from 2000 to 2020? (New buzzwords, phrases, etc.)
+8. *Which specific events caused changes in these concerns? (Lawsuits, databreaches, etc.)*
+(9.) In the case of databreaches, is there a discernable type of company that was targeted? If so, which specifically?
 
 
 Crime Rates
 https://www.bka.de/EN/CurrentInformation/Statistics/PoliceCrimeStatistics/policecrimestatistics_node.html
 https://data.police.uk/docs/
 Dokumentation: https://police-api-client-python.readthedocs.io/en/latest/
-
--A: How does the distribution of the type of crimes commited in Germany/ UK change over the span of a year? (consider last 10 years, take average)
--A: How does the type of crimes / crimes with firearms differ between regions with different population sizes? Is this distribution similar between Germany and the UK? Is this correlated to the sale of firearms in that region?
-
-
--H: Are direct prevention measures or broader socio-economic/political changes more effctive in reducing crime rates in Germany?
--H: Do major crime events (eg. widely televised homicides) have a short-term impact on overall crime rates?
+List of Terror attacks in UK [Link]
+Local Deprevation Score of UK [Link] 
+Salary Development in UK [Link]
+Stop and Searches in UK [Link]
+Benötigt: Bevölkerungsgrößen verschiedener Regionen
 
 
--J: How do socio-economical factors effect the crime rate in big cities?
--J: Does Urbanization have an effect on the development of crime rates?
-
-
--R: How do funds for police departments affect crime rates in highly populated areas (i.e big cities)? (=> Are more crimes detected? Do crimes happen less often?)
--R: How do the number of thefts and fraud-adjacent crimes correlate to the development of the average and median wages/salaries in Germany? 
-
-
+1. How does the distribution of the type of crimes commited in the UK change over the span of a year? (consider last 10 years, take average)
+2. How does the type of crimes differ between regions with different population sizes? *Is this distribution similar between Germany and the UK?*
+3. What types of crimes are committed most commonly by teenagers and young adults? How has this trend developed in the last 10 years?
+4. What types of crimes are committed most commonly against teenagers and young adults? How has this trend developed in the last 10 years?
+5. How does deprivation affect the rate of specific types of crimes in different counties?
+6. Do terror attacks have an impact on overall crime rates?
+7. In the case of stop-and-searches in the UK, to which degree are these cases racially motivated?
+8. How do the number of thefts and fraud-adjacent crimes correlate to the development of the wages/salaries in UK?
+9. How do different age groups compare in committing theft vs violent crime vs idk?
   
 spatial distribution of public Transport
 API räumliche Verteilung von Städten in Land x
@@ -49,18 +41,18 @@ https://overpass-api.de/api/
 BSP: https://overpass-api.de/api/map?bbox=9.980146,53.542730,9.985778,53.544786
 Dokumentation: https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_API_by_Example
 
--A: type of public Transport available / mostly used and correlation with city size (in Germany)
--A: type of public Transport available / mostly used and correlation with geographical conditions of that city (in Germany)
--A: type of public Transport available / mostly used and correlation with country location
+1. type of public Transport available / mostly used and correlation with city size (in Germany)
+2. type of public Transport available / mostly used and correlation with geographical conditions of that city (in Germany)
+3. type of public Transport available / mostly used and correlation with country location
 
 
--H: Do towns that are well connected to public transport perform better economically (or in living satisfaction indices)?
--H: Does a short-term decrease in the reliability of public transport correlate with higher car usage in big cities?
+4. Do towns that are well connected to public transport perform better economically (or in living satisfaction indices)?
+5. Does a short-term decrease in the reliability of public transport correlate with higher car usage in big cities?
 
 
--J: What effect has the expansion of local transport on the co2 emmissions of a city?
--J: Is local transport usage statistically associated with specific crime patterns across time?(rush hour etc)
+6. What effect has the expansion of local transport on the co2 emmissions of a city?
+7. Is local transport usage statistically associated with specific crime patterns across time?(rush hour etc)
 
 
--R: In what ways does public transport (bus, train connections) affect migration from smaller towns to cities? (i.e does a better connection lower the number of people moving to big cities?)
--R: How do german towns of similiar size compare economically based on if they have a tram connection or not?
+8. In what ways does public transport (bus, train connections) affect migration from smaller towns to cities? (i.e does a better connection lower the number of people moving to big cities?)
+9. How do german towns of similiar size compare economically based on if they have a tram connection or not?

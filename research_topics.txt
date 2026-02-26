@@ -1,6 +1,9 @@
 Privacy Policies
 https://privacypolicies.cs.princeton.edu/ghfront/
--A: what are differences in the privacy policies of companies from Germany in comparison to companies from other European countries? How does this correlate to the laws of the different countries about privacy policies?
+https://www.enforcementtracker.com/
+
+
+-A: what are differences in the privacy policies of companies from Germany in comparison to companies from other European countries? 
 -A: Is there a correlation between the kind of information / between the use of information gathered between companies that advertise for children vs. for adults?
 
 
@@ -8,10 +11,8 @@ https://privacypolicies.cs.princeton.edu/ghfront/
 -H: How strongly do the data collection practices of multinational companies differ across the globe?
 
 
-
 -J: Is there a correlation between national privacy policies and the amount of data breaches?
 -J: Do Data Protection Laws increase consumer trust in digital services?
-
 
 
 -R: What new aspects of privacy concerns have risen from 2000 to 2020? (New buzzwords, phrases, etc.)
@@ -19,8 +20,11 @@ https://privacypolicies.cs.princeton.edu/ghfront/
 -R(Spare): In the case of databreaches, is there a discernable type of company that was targeted? If so, which specifically?
 
 
+
 Crime Rates
-https://www.bka.de/EN/CurrentInformation/Statistics/PoliceCrimeStatistics/policecrimestatistics_node.html
+https://www.bka.de/EN/CurrentInformation/Statistics/PoliceCrimeStatistics/policecrimestatistics_node.html - evtl API crime statistic anderes Land
+https://data.police.uk/docs/
+
 -A: How does the distribution of the type of crimes commited in Germany/ UK change over the span of a year? (consider last 10 years, take average)
 -A: How does the type of crimes / crimes with firearms differ between regions with different population sizes? Is this distribution similar between Germany and the UK? Is this correlated to the sale of firearms in that region?
 
@@ -29,17 +33,21 @@ https://www.bka.de/EN/CurrentInformation/Statistics/PoliceCrimeStatistics/police
 -H: Do major crime events (eg. widely televised homicides) have a short-term impact on overall crime rates?
 
 
-
 -J: How do socio-economical factors effect the crime rate in big cities?
 -J: Does Urbanization have an effect on the development of crime rates?
-https://data.police.uk/docs/
 
 
 -R: How do funds for police departments affect crime rates in highly populated areas (i.e big cities)? (=> Are more crimes detected? Do crimes happen less often?)
 -R: How do the number of thefts and fraud-adjacent crimes correlate to the development of the average and median wages/salaries in Germany? 
 
+
   
-spatial distribution of public transport
+spatial distribution of public Transport
+API räumliche Verteilung von Städten in Land x
+https://overpass-api.de/api/
+BSP: https://overpass-api.de/api/map?bbox=9.980146,53.542730,9.985778,53.544786
+Dokumentation: https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_API_by_Example
+
 -A: type of public Transport available / mostly used and correlation with city size (in Germany)
 -A: type of public Transport available / mostly used and correlation with geographical conditions of that city (in Germany)
 -A: type of public Transport available / mostly used and correlation with country location
@@ -49,10 +57,8 @@ spatial distribution of public transport
 -H: Does a short-term decrease in the reliability of public transport correlate with higher car usage in big cities?
 
 
-
 -J: What effect has the expansion of local transport on the co2 emmissions of a city?
 -J: Is local transport usage statistically associated with specific crime patterns across time?(rush hour etc)
-
 
 
 -R: In what ways does public transport (bus, train connections) affect migration from smaller towns to cities? (i.e does a better connection lower the number of people moving to big cities?)

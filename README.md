@@ -1,4 +1,4 @@
-# dasciproject-ws25_26-group15
+# Read Me
 
 ### Introduction
 This project is about the 1. Bundesliga of football in Germany. This project discusses different influences on the number of goals or the victories of the teams, e.g. scored the timeline of the match, the rainfall, the venue or the location at home vs. away.
@@ -26,3 +26,6 @@ todo Showcase how to use your web application and the highlights
 
 ### LLM
 All lines of code, that are either directly from LLM or developed with the help of a LLM are marked accordingly.
+
+### About us
+This project is created by group 15 and is part of the Data Science Project of the winter semester 2025/26.

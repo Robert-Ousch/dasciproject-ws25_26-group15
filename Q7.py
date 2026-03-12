@@ -7,12 +7,12 @@ def df7():
     result = {}
     # year: goal_away per team
 
-    alternatives = ['1. FSV Mainz 05', 'TSG Hoffenheim', 'Bayer 04 Leverkusen', \
+    alternatives = ['1. FSV Mainz 05', 'TSG 1899 Hoffenheim', 'TSG Hoffenheim', 'Bayer 04 Leverkusen', \
                 'FC Bayern München', 'Borussia Dortmund', 'Borussia Mönchengladbach', \
                 'VfL Wolfsburg']
 
     for x in range(15):
-        season = 2009 + x
+        season = 2010 + x
         result[season] = {}
         url = "https://api.openligadb.de/getmatchdata/bl1/" + str(season)
         response = requests.get(url)
@@ -21,6 +21,8 @@ def df7():
         # get total number of goals away
         for match in response:
             teamName2 = match['team2']['teamName']
+            if teamName2 == 'TSG 1899 Hoffenheim':
+                teamName2 = 'TSG Hoffenheim'
             if teamName2 in alternatives:
                 if teamName2 not in result[season].keys():
                     result[season][teamName2] = 0

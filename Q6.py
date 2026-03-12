@@ -6,7 +6,7 @@ def df6():
     result = {}
     # teamName: goals_home per season
 
-    for x in range(14):
+    for x in range(15):
         season = 2010 + x
         response = requests.get("https://api.openligadb.de/getmatchdata/bl1/" + str(season))
         response = response.json()

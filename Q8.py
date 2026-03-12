@@ -2,7 +2,9 @@ import requests
 import pandas as pd
 import matplotlib.pyplot as plt
 from requests.auth import HTTPBasicAuth
-header = {'x-apisports-key': }
+import os
+
+header = {'x-apisports-key': os.getenv("API_FOOTBALL_KEY") }
 
 
 def df8():

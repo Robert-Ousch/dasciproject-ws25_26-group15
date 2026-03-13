@@ -1,5 +1,7 @@
 # Read Me
 
+## Rain, timing or home advantage? What Influences goals and victories in the bundesliga.
+
 ### Introduction
 This project is about the 1. Bundesliga of football in Germany. This project discusses different influences on the number of goals or the victories of the teams, e.g. scored goals, the timeline of the match, the rainfall, the venue or the location at home vs. away.
 
@@ -28,4 +30,4 @@ todo Showcase how to use your web application and the highlights
 All lines of code, that are either directly from LLM or developed with the help of a LLM are marked accordingly.
 
 ### About us
-This project is created by group 15 and is part of the Data Science Project of the winter semester 2025/26.
+This project is created as part of the Data Science Project of the winter semester 2025/26 from Cristian-Albrechts-University in Kiel. Our group is number 15 and the team members are Hauke Busch, Jakob Erichsen, Alexander Liebler and Robert Ousch.

@@ -1,7 +1,7 @@
 # Read Me
 
 ### Introduction
-This project is about the 1. Bundesliga of football in Germany. This project discusses different influences on the number of goals or the victories of the teams, e.g. scored the timeline of the match, the rainfall, the venue or the location at home vs. away.
+This project is about the 1. Bundesliga of football in Germany. This project discusses different influences on the number of goals or the victories of the teams, e.g. scored goals, the timeline of the match, the rainfall, the venue or the location at home vs. away.
 
 Following research questions are answered:
 1. During the last 15 seasons, inspecting 15 minute intervalls, when are the most goals scored during a match? How does this differ between teams?

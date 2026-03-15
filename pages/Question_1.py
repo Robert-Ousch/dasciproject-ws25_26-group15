@@ -72,11 +72,8 @@ def df1():
     number_of_goals = sum(total_goals.values())
 
     for interval in total_goals.keys(): 
-        total_gpi[interval] = total_goals[interval] / total_matches
+        total_gpi[interval] = total_goals[interval] / (2 * total_matches)
         total_avg[interval] = total_goals[interval] / number_of_goals
-
-    teams[0] = {'name': 'Bundesliga', 'matches': total_matches,
-                'total': total_goals, 'gpi': total_gpi, 'avg': total_avg}
 
     # Specific team statistics
     for team in teams: 
@@ -88,6 +85,9 @@ def df1():
             teams[team]['gpi'][interval] = teams[team]['total'][interval] / teams[team]['matches']  
             teams[team]['avg'][interval] = teams[team]['total'][interval] / tg
     
+    teams[0] = {'name': 'Bundesliga', 'matches': total_matches,
+                'total': total_goals, 'gpi': total_gpi, 'avg': total_avg}
+    
     # Create dataframe
     teamNames = []
     minutes = []
@@ -95,7 +95,7 @@ def df1():
     avgValues = []
     for id in teams:
           teamNames += [teams[id]['name']] * 7 # Once for every interval
-          minutes += teams[id]['gpi'].keys()
+          minutes += [str(x) for x in teams[id]['gpi'].keys()]
           gpiValues += teams[id]['gpi'].values()
           avgValues += teams[id]['avg'].values()
 
@@ -109,7 +109,7 @@ def df1():
     return df
 
 df1 = df1()
-fig1 = px.bar(df1, x = 'Minute', y = 'Percentage', color = 'Team', barmode='group')
+fig1 = px.bar(df1, x = 'Minute', y = 'Percentage', color = 'Team', barmode='group', range_x = [15,105])
 
 ### Page Layout ###
 dash.register_page(__name__)
@@ -128,7 +128,7 @@ layout = html.Div([
     Input('Q1TeamDropdown','value')
 )
 def update_Q1(ratio, selected_teams):
-    df_temp = pd.DataFrame({})
+    df_temp = pd.DataFrame({'Minute':[], 'Goals':[], 'Team':[], 'Percentage':[]})
     for team in selected_teams:
         rows = df1.loc[df1['Team'] == team]
         df_temp = pd.concat([df_temp, rows], ignore_index= True)

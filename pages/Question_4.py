@@ -79,6 +79,33 @@ slope_df[["movement", "color"]] = slope_df.apply(classify, axis=1, result_type="
 
 fig_q4 = go.Figure()
 
+for i, row in slope_df.iterrows():
+    #line between the 2 ranks(wincount and comeback %)
+    fig_q4.add_trace(go.Scatter(
+        x=[0, 1],
+        y=[row["rank_wins"], row["rank_rate"]],
+        mode='lines+markers',
+        line=dict(color=row["color"], width=2),
+        marker=dict(size=7, color=row["color"]),
+        showlegend=False,
+        hovertemplate=f"{row['team']}<br>Comebackwins Rank: #{row['rank_wins']}<br>Comebackrate Rank: #{row['rank_rate']}<extra></extra>"
+    ))
+    #teamnames left
+    fig_q4.add_annotation(x=0, y=row["rank_wins"], text=row["team"],
+                          xanchor="right", showarrow=False, font=dict(size=9))
+    #teamnames right
+    fig_q4.add_annotation(x=1, y=row["rank_rate"], text=row["team"],
+                          xanchor="left", showarrow=False, font=dict(size=9))
+
+fig_q4.update_layout(
+    xaxis=dict(
+        tickvals=[0, 1],
+        ticktext=["Rank by Comeback Wins", "Rank by Comeback Rate"],
+        range=[-0.5, 1.5]
+    ),
+    yaxis=dict(autorange="reversed", title="Rank"),
+    height=700,
+)
 
 ### Page Layout ###
 dash.register_page(__name__)

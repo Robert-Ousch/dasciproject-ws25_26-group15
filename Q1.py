@@ -69,7 +69,7 @@ def df1():
     number_of_goals = sum(total_goals.values())
 
     for interval in total_goals.keys(): 
-        total_gpi[interval] = total_goals[interval] / total_matches
+        total_gpi[interval] = total_goals[interval] / 2 * total_matches
         total_avg[interval] = total_goals[interval] / number_of_goals
 
     teams[0] = {'name': 'Bundesliga', 'matches': total_matches,

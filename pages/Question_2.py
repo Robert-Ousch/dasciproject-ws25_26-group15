@@ -1,0 +1,60 @@
+import requests, json
+import pandas as pd
+import dash
+from dash import html, dcc, callback, Input, Output
+import plotly.express as px
+
+### Page Layout ###
+dash.register_page(__name__)
+
+with open("./.data_Q2.txt", "r") as file:
+    data_Q2 = json.loads(file.read())
+
+def filter_prec(data, threshold):
+    teams_lt = []
+    goals_lt = []
+    teams_gt = []
+    goals_gt =[]
+    df1 = pd.DataFrame()
+    df2 = pd.DataFrame()
+    for team, matches in data.items():
+        for match in list(zip(*matches)):
+            if match[1] > threshold:
+                teams_gt.append(team)
+                goals_gt.append(match[0])
+            else:
+                teams_lt.append(team)
+                goals_lt.append(match[0])
+    teams_lt = [team + " (" + str(teams_lt.count(team)) + ")" for team in teams_lt]
+    teams_gt = [team + " (" + str(teams_gt.count(team)) + ")" for team in teams_gt]
+    df1["Teams (# Matches)"] = teams_lt
+    df1["Goals"] = goals_lt
+    df2["Teams (# Matches)"] = teams_gt
+    df2["Goals"] = goals_gt
+    return px.box(df1, x="Teams (# Matches)", y="Goals"), px.box(df2, x="Teams (# Matches)", y="Goals")
+
+layout =html.Div([
+            html.H3('[Question 2]'),
+            html.P("Select the amount of precipitation to be used as threshold:"),
+            dcc.Slider(
+                id='Q2_rain_filter',
+                min=0,
+                max=35,
+                step=0.1,
+                value=1.5,
+            ),
+            html.P("Select any number of teams for the charts:"),
+            dcc.Dropdown(list(data_Q2.keys()), list(data_Q2.keys()), True, True, True, id="Q2_teams_filter"),
+            html.Div(children=dcc.Graph(id= "Q2_0", figure=px.bar())),
+            html.Div(children=dcc.Graph(id= "Q2_1", figure=px.bar())),
+        ], id = 'Q2Div')
+
+@callback(
+    Output(component_id="Q2_0", component_property="figure"),
+    Output(component_id="Q2_1", component_property="figure"),
+    Input(component_id="Q2_rain_filter", component_property="value"),
+    Input(component_id="Q2_teams_filter", component_property="value")
+)
+def update_plots_Q2(threshold, selection):
+    data = dict(list(filter(lambda x: x[0] in selection, data_Q2.items())))
+    return filter_prec(data, threshold)

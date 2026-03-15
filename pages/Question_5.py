@@ -1,7 +1,9 @@
 import requests
+import json
 import pandas as pd
 import dash
 from dash import html, dcc, callback, Input, Output
+import plotly.graph_objects as go
 
 ### Calculations (Q5.py) ###
 #Load all matches from the API

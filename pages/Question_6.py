@@ -3,6 +3,7 @@ import pandas as pd
 import dash
 from dash import html, dcc, callback, Input, Output
 import plotly.express as px
+import plotly.graph_objects as go
 
 
 ### Calculations ###
@@ -48,16 +49,50 @@ def df6():
 
 df6 = df6()
 
+def plot_category_lollipop(grouped_df, category_key, value_key):
+    ''' source:
+    https://hi-artemii.medium.com/vertical-lollipop-chart-in-\
+    plotly-python-minimal-code-example-1e1bca0b1261
+    '''
+    grouped_df = grouped_df.sort_values(by=value_key)
+    fig_data = []
+    fig_data.extend([
+        go.Scatter(
+            x = [0, count],
+            y = [category, category],
+            mode = "lines",
+            line = dict(color="silver", width=3),
+            showlegend = False
+        )
+        for category, count in zip(grouped_df[category_key], grouped_df[value_key])   
+    ])
+    fig_data.append(
+        go.Scatter(
+            x = grouped_df[value_key],
+            y = grouped_df[category_key],
+            mode = "markers+text",
+            marker = dict(color = "DarkBlue", size = 16.0),
+            text = [f"{x}" for x in grouped_df[value_key]],
+            textposition = "middle right",
+            showlegend = False
+        )
+    )
+    fig = go.Figure(fig_data)
+    fig.update_yaxes(dtick = 1)
+    return fig
+
+
 
 ### Page Layout ###
 dash.register_page(__name__)
 
-layout = html.Div([
-            html.H3('Question 6: Which teams scored goals at home turf most often?'),
-            html.P("Select the year to consider:"),
-            dcc.Slider(2010, 2024, 1, value=2010, id='component6'),
-            html.Div(dcc.Graph(id = 'graph6')), 
-        ], id = 'Q6Div'),
+layout = html.Div(
+    [
+        html.H3('Question 6: Which teams scored goals at home turf most often?'),
+        html.P("Select the year to consider:"),
+        dcc.Slider(2010, 2024, 1, value=2010, id='component6'),
+        html.Div(dcc.Graph(id = 'graph6')), 
+    ], id = 'Q6Div')
 
 
 ### Callback ###
@@ -66,9 +101,13 @@ layout = html.Div([
     Input(component_id = 'component6', component_property = 'value')
 )
 def upgrade_graph_6(value_chosen):
-    fig6 = px.bar(df6, y = value_chosen)
-    fig6.update_layout(
-        xaxis_title = 'Team Names', 
-        yaxis_title = 'Total number of goals'
-    )
+    dict6 = pd.DataFrame.to_dict(df6)       # convert df to dict
+    dict6 = dict6[value_chosen]
+    dict6_new = {}      # create new dict with correct labels
+    for key in dict6.keys():
+        if dict6[key] >= 0:  
+            dict6_new[key] = {'team': key, 'goals': dict6[key]}
+    df6_new = pd.DataFrame.from_dict(dict6_new).transpose()     # convert dict to df
+    fig6 = plot_category_lollipop(df6_new, category_key = 'team', value_key = 'goals')
+    fig6.update_yaxes(nticks = 18)
     return fig6

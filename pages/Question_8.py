@@ -118,6 +118,16 @@ dash.register_page(__name__)
 layout = html.Div([
             html.H3('Question 8: How does the venue capacity influence the win rate of the \
                 away team for the seasons 2022-2024?'),
+            html.P('We wanted to analyze, whether the venue capacity influences the \
+	            win rate of the away team.\
+                Our source provides capacity information for the seasons 2022 – 2024. \
+                The dynamic heatmap displayes the win rate of the away team \
+                for the selected venue capacities and teams.\
+                The win rate is calculated as the matches won at the venue by the given\
+                team divided by all matches played at the venue by the given team.\
+                The heatmap is missing values for the combination of venue and team, \
+                where the team is the home team at the specific venue or\
+                where the team did not play any match at the specific venue. '),
             html.P("Select upper and lower bounds for the venue capacity:"),
             dcc.Checklist(
                 options = ['15000', '17810', '22467', '27599', '29564', '30000', '30164', '30210', '30662', \

@@ -56,6 +56,11 @@ dash.register_page(__name__)
 layout = html.Div([
             html.H3('Question 7: During the last 15 years (seasons 09/10 to 24/25), \
                 when did each team score goals most often in their opponent`s city?'),
+            html.P('When looking at the last 15 years at the seasons of 09/10 to 24/25, \
+	            seven teams played in the 1st Bundesliga in each season.\
+	            These teams can be selected in the dropdown below.\
+	            The line chart presents the change of the amount of goals sored \
+                during all away matches per season for the chosen team(s).'),
             html.P("Select one or more teams to compare:"),
             dcc.Dropdown(
                 options = ['1. FSV Mainz 05', 'TSG Hoffenheim', 'Bayer 04 Leverkusen', \

@@ -89,7 +89,12 @@ dash.register_page(__name__)
 layout = html.Div(
     [
         html.H3('Question 6: Which teams scored goals at home turf most often?'),
-        html.P("Select the year to consider:"),
+        html.P('This question provides an overview for one season at a time, which can be\
+            chosen using the slider below between the seasons 2010 and 2024.\
+            The lollipop graph displays all teams, that played in the chosen season, \
+            as well as the number of goals each team scored during all home matches \
+            of the chosen season'),
+        html.P('Select the year to consider:'),
         dcc.Slider(2010, 2024, 1, value=2010, id='component6'),
         html.Div(dcc.Graph(id = 'graph6')), 
     ], id = 'Q6Div')

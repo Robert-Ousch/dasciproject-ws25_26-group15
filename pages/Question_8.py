@@ -150,6 +150,10 @@ layout = html.Div([
 def upgrade_graph_8(team_chosen):
     fig8 = px.imshow(df8[team_chosen])
     fig8.update_xaxes(nticks = len(team_chosen))
+    fig8.update_layout(
+        xaxis_title = 'Teams', 
+        yaxis_title = 'Venue capacity'
+    )
     return fig8 
 ''' 
 def upgrade_graph_8(capacity_chosen, team_chosen):

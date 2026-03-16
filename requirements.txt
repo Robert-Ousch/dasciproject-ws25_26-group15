@@ -17,13 +17,16 @@ nest-asyncio==1.6.0
 numpy==2.4.3
 packaging==26.0
 pandas==3.0.1
+patsy==1.0.2
 plotly==6.6.0
 python-dateutil==2.9.0.post0
 requests==2.32.5
 retrying==1.4.2
+scipy==1.17.1
 setuptools==82.0.1
 six==1.17.0
 statistics==1.0.3.5
+statsmodels==0.14.6
 typing_extensions==4.15.0
 tzdata==2025.3
 urllib3==2.6.3

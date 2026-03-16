@@ -152,7 +152,11 @@ graph.update_layout(
 dash.register_page(__name__)
 
 layout = html.Div([
-    html.H3('Question 5: How does the timing of the first conceded lead-giving goal affect the match outcome?'),
+    html.H3('Question 5: How does the timing of the first conceded lead-giving goal affect the match outcome?'), 
+    html.P('The timing of the first lead-giving goal conceded may strongly influence how a match develops. ' \
+    'Conceding early still leaves time to recover, while conceding late often makes it difficult to change the outcome. ' \
+    'By analyzing match results across different time intervals, we can explore how the timing of falling behind affects ' \
+    'the chances of winning, drawing, or losing.  The visualizations help reveal these patterns and highlight potential differences across match situations.'),
     dcc.Graph(
         id='q5_outcome_focus',
         figure=graph

@@ -72,8 +72,8 @@ def df1():
     number_of_goals = sum(total_goals.values())
 
     for interval in total_goals.keys(): 
-        total_gpi[interval] = total_goals[interval] / (2 * total_matches)
-        total_avg[interval] = total_goals[interval] / number_of_goals
+        total_gpi[interval] = round(total_goals[interval] / (2 * total_matches), 4)
+        total_avg[interval] = round((total_goals[interval] / number_of_goals)*100, 4)
 
     # Specific team statistics
     for team in teams: 
@@ -82,8 +82,8 @@ def df1():
         tg = sum(teams[team]['total'].values())
 
         for interval in teams[team]['total'].keys():
-            teams[team]['gpi'][interval] = teams[team]['total'][interval] / teams[team]['matches']  
-            teams[team]['avg'][interval] = teams[team]['total'][interval] / tg
+            teams[team]['gpi'][interval] = round(teams[team]['total'][interval] / teams[team]['matches'],4)  
+            teams[team]['avg'][interval] = round((teams[team]['total'][interval] / tg)*100, 4)
     
     teams[0] = {'name': 'Bundesliga', 'matches': total_matches,
                 'total': total_goals, 'gpi': total_gpi, 'avg': total_avg}
@@ -109,16 +109,22 @@ def df1():
     return df
 
 df1 = df1()
-fig1 = px.bar(df1, x = 'Minute', y = 'Percentage', color = 'Team', barmode='group', range_x = [15,105])
+fig1 = px.bar(df1, x = 'Minute', y = 'Percentage', color = 'Team', barmode='group', range_x = [15,105], text = 'Percentage')
 
 ### Page Layout ###
 dash.register_page(__name__)
 
 layout = html.Div([
             html.H3('Question 1: Inspecting 15 minute intervalls, when during the last 15 years (seasons 10/11 to 24/25) were the most goals scored?'),
+            html.P(['"Goals" shows the number of goals scored in an average game,',
+                    html.Br(),
+                    '"Percentage" shows the percentage of goals scored in that time interval'], id = 'Q1RadioTip'),
             html.Div(dcc.Dropdown(df1['Team'][::7], value = ['Bundesliga'], multi = True, id = 'Q1TeamDropdown')),
             html.Div(dcc.RadioItems(options = ['Goals', 'Percentage'], value = 'Goals', id = 'Q1Radio')),
-            html.Div(dcc.Graph(id = 'Q1Barchart', figure = fig1))   
+            html.Div(dcc.Graph(id = 'Q1Barchart', figure = fig1)),
+            html.P(['Calculated by summing all goals scored by a team in a specific timeslot,',
+                    html.Br(),
+                    'then dividing by amount of matches played for "Goals" and total goals scored for "Percentage"'], id = 'Q1Details')
         ], id = 'Q1Div')
 
 ### Callback ###
@@ -132,5 +138,5 @@ def update_Q1(ratio, selected_teams):
     for team in selected_teams:
         rows = df1.loc[df1['Team'] == team]
         df_temp = pd.concat([df_temp, rows], ignore_index= True)
-    fig1 = px.bar(df_temp, x = 'Minute', y = ratio, color = 'Team', barmode='group')
+    fig1 = px.bar(df_temp, x = 'Minute', y = ratio, color = 'Team', barmode='group', text = ratio)
     return fig1

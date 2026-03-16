@@ -109,5 +109,4 @@ def upgrade_graph_6(value_chosen):
             dict6_new[key] = {'team': key, 'goals': dict6[key]}
     df6_new = pd.DataFrame.from_dict(dict6_new).transpose()     # convert dict to df
     fig6 = plot_category_lollipop(df6_new, category_key = 'team', value_key = 'goals')
-    fig6.update_yaxes(nticks = 18)
     return fig6

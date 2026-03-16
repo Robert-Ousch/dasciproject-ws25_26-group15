@@ -10,6 +10,8 @@ dash.register_page(__name__)
 with open("./.data_Q2.txt", "r") as file:
     data_Q2 = json.loads(file.read())
 
+diagrams = []
+
 def filter_prec(data, threshold):
     teams_lt = []
     goals_lt = []
@@ -17,16 +19,26 @@ def filter_prec(data, threshold):
     goals_gt =[]
     df1 = pd.DataFrame()
     df2 = pd.DataFrame()
+    counts_lt = {}
+    counts_gt = {}
     for team, matches in data.items():
         for match in list(zip(*matches)):
             if match[1] > threshold:
+                if team in counts_gt:
+                    counts_gt[team] += 1
+                else:
+                    counts_gt[team] = 1
                 teams_gt.append(team)
                 goals_gt.append(match[0])
             else:
+                if team in counts_lt:
+                    counts_lt[team] += 1
+                else:
+                    counts_lt[team] = 1
                 teams_lt.append(team)
                 goals_lt.append(match[0])
-    teams_lt = [team + " (" + str(teams_lt.count(team)) + ")" for team in teams_lt]
-    teams_gt = [team + " (" + str(teams_gt.count(team)) + ")" for team in teams_gt]
+    teams_lt = [team + " (" + str(counts_lt[team]) + ")" for team in teams_lt]
+    teams_gt = [team + " (" + str(counts_gt[team]) + ")" for team in teams_gt]
     df1["Teams (# Matches)"] = teams_lt
     df1["Goals"] = goals_lt
     df2["Teams (# Matches)"] = teams_gt
@@ -56,5 +68,5 @@ layout =html.Div([
     Input(component_id="Q2_teams_filter", component_property="value")
 )
 def update_plots_Q2(threshold, selection):
-    data = dict(list(filter(lambda x: x[0] in selection, data_Q2.items())))
+    data = dict(filter(lambda x: x[0] in selection, data_Q2.items()))
     return filter_prec(data, threshold)

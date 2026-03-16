@@ -18,7 +18,7 @@ avgs_r = []
 precs_r = []
 avgs_p = []
 precs_p = []
-for i in range(0, 350):
+for i in range(350):
     matches_r = list(filter(lambda x: i/10 <= x[1] < i/10+0.1, list(zip(data_Q3["Goals"], data_Q3["Rain"], data_Q3["Precipitation"]))))
     matches_p = list(filter(lambda x: i/10 <= x[2] < i/10+0.1, list(zip(data_Q3["Goals"], data_Q3["Rain"], data_Q3["Precipitation"]))))
     if len(matches_r) > 5:
@@ -29,11 +29,11 @@ for i in range(0, 350):
         precs_p.append(i/10)
 
 df3_r["Average goals per match"] = avgs_r
-df3_r["Precipitation group"] = precs_r
-fig_Q3_r = px.scatter(df3_r, x="Precipitation group",y="Average goals per match", trendline="ols")
+df3_r["Rain amount (grouped)"] = precs_r
+fig_Q3_r = px.scatter(df3_r, x="Rain amount (grouped)",y="Average goals per match", trendline="ols")
 df3_p["Average goals per match"] = avgs_p
-df3_p["Rain group"] = precs_p
-fig_Q3_p = px.scatter(df3_p, x="Rain group",y="Average goals per match", trendline="ols")
+df3_p["Precipitation amount (grouped)"] = precs_p
+fig_Q3_p = px.scatter(df3_p, x="Precipitation amount (grouped)",y="Average goals per match", trendline="ols")
 
 layout = html.Div([
             html.H3('[Question 3]'),

@@ -3,6 +3,7 @@ from dash import Dash, html, dcc
 import os
 
 app = Dash(__name__, use_pages=True)
+app = app.server
 
 app.layout = html.Div([
     html.H1('Data Science Project WS 25/26', style = {'textAlign':'centering'}),

@@ -43,20 +43,31 @@ def filter_prec(data, threshold):
     df1["Goals"] = goals_lt
     df2["Teams (# Matches)"] = teams_gt
     df2["Goals"] = goals_gt
-    return px.box(df1, x="Teams (# Matches)", y="Goals"), px.box(df2, x="Teams (# Matches)", y="Goals")
+    return (px.box(df1, x="Teams (# Matches)", y="Goals", title=f"Goals distribution during games with at most {threshold}mm of precipitation"), 
+            px.box(df2, x="Teams (# Matches)", y="Goals", title=f"Goals distribution during games with more than {threshold}mm of precipitation"))
 
-layout =html.Div([
-            html.H3('[Question 2]'),
-            html.P("Select the amount of precipitation to be used as threshold:"),
-            dcc.Slider(
-                id='Q2_rain_filter',
-                min=0,
-                max=35,
-                step=0.1,
-                value=1.5,
+layout = html.Div([
+            html.H3('Question 2: How does high rainfall during a match influence the performance of certain German teams?'),
+            html.P("Many football arenas in Germany do not (yet) have a roof, exposing teams and spectators alike to the elements. " \
+            "We wanted to know if there are any teams out there which are particularly impacted by unfavorable weather conditions. " \
+            "For this purpose, we're identifying a team's performance with the number of goals they scored during the match."),
+            html.P("On this page, you will be able to answer this question for yourself. Move the slider below to see a distribution of scored " \
+            "goals for all selected teams, which only takes into account matches with a precipitation less than (top plot) or greater than (bottom plot) " \
+            "that much precipitation on the day of the match."),
+            html.Div(
+                [html.P("Precipitation threshold (mm):"),
+                dcc.Slider(
+                    id='Q2_rain_filter',
+                    min=0,
+                    max=35,
+                    step=0.1,
+                    value=1.5,
+                )]
             ),
-            html.P("Select any number of teams for the charts:"),
-            dcc.Dropdown(list(data_Q2.keys()), list(data_Q2.keys()), True, True, True, id="Q2_teams_filter"),
+            html.Div(
+                [html.P("Selected teams:"),
+                dcc.Dropdown(list(data_Q2.keys()), list(data_Q2.keys()), True, True, True, id="Q2_teams_filter")]
+            ),
             html.Div(children=dcc.Graph(id= "Q2_0", figure=px.bar())),
             html.Div(children=dcc.Graph(id= "Q2_1", figure=px.bar())),
         ], id = 'Q2Div')

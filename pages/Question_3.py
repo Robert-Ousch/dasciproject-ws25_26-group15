@@ -35,11 +35,20 @@ df3_p["Average goals per match"] = avgs_p
 df3_p["Precipitation amount (grouped)"] = precs_p
 fig_Q3_p = px.scatter(df3_p, x="Precipitation amount (grouped)",y="Average goals per match", trendline="ols")
 
-layout = html.Div([
+layout = [
+        html.Div([
             html.H3('[Question 3]'),
-            html.Div(dcc.RadioItems(["Rain", "Precipitation"], "Rain", id="Q3_rain_select")),
+            html.P("Taking a step back from the previous question, on this page we're interested in a general trend in the amount of goals scored " \
+            "during the average football match as the precipitation changes. We therefore group matches into buckets based on precipitation " \
+            "with a bucket size of 0.1mm, then plot the average number of goals for each bucket below. This naturally creates an imbalance " \
+            "in the bucket sizes, as about half of all games see no precipitation at all whereas only about a quarter of games see a precipitation " \
+            "greater than 3mm. This is the reason for the increase in variance we observe in the plot, not the precipitation itself. Only buckets with " \
+            "a size of 5 or greater are considered to eliminate outliers. As we can see, the observed trend varies little when considering rain specifically " \
+            "as opposed to precipitation, which also includes all other ways water can fall from the sky."),
+            html.Div(dcc.RadioItems(["Rain", "Precipitation"], "Precipitation", id="Q3_rain_select")),
             html.Div(children=dcc.Graph(id= "Q3_1", figure=px.scatter())),
-        ], id = 'Q3Div'),
+        ], id = 'Q3Div')
+        ]
 
 
 @callback(

@@ -110,11 +110,53 @@ outcome_dist_q5 = outcome_dist_q5.reindex(columns=['win', 'draw', 'loss'], fill_
 # Convert to percentages
 outcome_pct_q5 = outcome_dist_q5.div(outcome_dist_q5.sum(axis=1), axis=0) * 100
 
+### Static Stacked Bar chart
+
+x = outcome_pct_q5.index.astype(str)
+
+graph = go.Figure()
+
+graph.add_bar(
+    x=x,
+    y=outcome_pct_q5['win'],
+    name='Win',
+    marker_color='green'
+)
+
+graph.add_bar(
+    x=x,
+    y=outcome_pct_q5['draw'],
+    name='Draw',
+    marker_color='grey'
+)
+
+graph.add_bar(
+    x=x,
+    y=outcome_pct_q5['loss'],
+    name='Loss',
+    marker_color='red',
+    text=[f'{l:.0f}%' for l in outcome_pct_q5['loss']],
+    textposition='inside'
+)
+
+graph.update_layout(
+    barmode='stack',
+    title='Match Outcome Distribution by Timing of First Lead-Giving Goal<br>Bundesliga 2009–2024',
+    xaxis_title='Minute of First Lead-Giving Goal Conceded',
+    yaxis_title='Share of Matches (%)',
+    yaxis=dict(range=[0,105]),
+    template='plotly_white'
+)
+
 ### Page Layout ###
 dash.register_page(__name__)
 
 layout = html.Div([
     html.H3('Question 5: How does the timing of the first conceded lead-giving goal affect the match outcome?'),
+    dcc.Graph(
+        id='q5_outcome_focus',
+        figure=graph
+    ),
     dcc.RadioItems(
         id='q5_outcome_filter',
         options=[

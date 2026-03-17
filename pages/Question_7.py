@@ -79,9 +79,11 @@ layout = html.Div([
     Input(component_id = 'component7', component_property = 'value')
 )
 def upgrade_graph_7(value_chosen):
-    fig7 = px.line(df7, y = value_chosen)
+    fig7 = px.line(df7, y = value_chosen, color_discrete_sequence = ["#6175c4",\
+        "#cf47a3","#58a9d7","#8a5dcf","#d878a3","#cb8cda","#954b85"])
     fig7.update_layout(
         xaxis_title = 'Year', 
         yaxis_title = 'Total number of goals'
     )
+    fig7.update_xaxes(nticks = 15, tickangle = 45)
     return fig7

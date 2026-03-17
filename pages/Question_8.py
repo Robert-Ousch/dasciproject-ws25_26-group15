@@ -158,7 +158,7 @@ layout = html.Div([
     Input(component_id = 'component8_2', component_property = 'value')
 )
 def upgrade_graph_8(team_chosen):
-    fig8 = px.imshow(df8[team_chosen])
+    fig8 = px.imshow(df8[team_chosen], color_continuous_scale = 'Plotly3')    
     fig8.update_xaxes(nticks = len(team_chosen))
     fig8.update_layout(
         xaxis_title = 'Teams', 

@@ -16,6 +16,7 @@ Following research questions are answered:
 8. How does the venue capacity influence the win rate of the away team during the years 2022-2024?
 
 For this project, the main data source is the API api.openligadb.de, which contains historic data of matches, teams and goals. The API v3.football.api-sports.io is used for the venue capacity. Finally, geocoding-api.open-meteo.com incluces weather data, more specifically rainfall and precipitation for given coordinates.
+The lollipop plot is implemented based on https://hi-artemii.medium.com/vertical-lollipop-chart-in-plotly-python-minimal-code-example-1e1bca0b1261.
 
 ### Data pipeline
 todo Description of the data pipeline

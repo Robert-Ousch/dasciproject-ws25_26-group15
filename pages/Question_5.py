@@ -120,14 +120,18 @@ graph.add_bar(
     x=x,
     y=outcome_pct_q5['win'],
     name='Win',
-    marker_color='green'
+    marker_color='green',
+    text=[f'{v:.0f}%' for v in outcome_pct_q5['win']],   
+    textposition='inside'
 )
 
 graph.add_bar(
     x=x,
     y=outcome_pct_q5['draw'],
     name='Draw',
-    marker_color='grey'
+    marker_color='grey',
+    text=[f'{v:.0f}%' for v in outcome_pct_q5['draw']],  # ← hinzufügen
+    textposition='inside'
 )
 
 graph.add_bar(
@@ -135,8 +139,8 @@ graph.add_bar(
     y=outcome_pct_q5['loss'],
     name='Loss',
     marker_color='red',
-    text=[f'{l:.0f}%' for l in outcome_pct_q5['loss']],
-    textposition='inside'
+    text=[f'{v:.0f}%' for v in outcome_pct_q5['loss']],
+    textposition='inside',
 )
 
 graph.update_layout(

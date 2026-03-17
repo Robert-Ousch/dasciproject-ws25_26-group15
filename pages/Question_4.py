@@ -92,19 +92,22 @@ for i, row in slope_df.iterrows():
     ))
     #teamnames left
     fig_q4.add_annotation(x=0, y=row["rank_wins"], text=row["team"],
-                          xanchor="right", showarrow=False, font=dict(size=9))
+    xanchor="right", showarrow=False,
+    font=dict(size=9, weight='bold'))                      
     #teamnames right
     fig_q4.add_annotation(x=1, y=row["rank_rate"], text=row["team"],
-                          xanchor="left", showarrow=False, font=dict(size=9))
+    xanchor="left", showarrow=False,
+    font=dict(size=9, weight='bold'))
 
 fig_q4.update_layout(
     xaxis=dict(
         tickvals=[0, 1],
         ticktext=["Rank by Comeback Wins", "Rank by Comeback Rate"],
-        range=[-0.5, 1.5]
+        range=[-0.2, 1.3]
     ),
     yaxis=dict(autorange="reversed", title="Rank"),
     height=700,
+    margin=dict(l=150, r=150), 
 )
 
 ### Page Layout ###

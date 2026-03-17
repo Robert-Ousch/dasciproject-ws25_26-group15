@@ -1,58 +1,63 @@
-import requests, json
 import pandas as pd
+import requests
+import json
 import dash
 from dash import html, dcc, callback, Input, Output
-import plotly.express as px
 import plotly.graph_objects as go
 
 
 ### Calculations ###
-def df6():
+def df_6():
+    '''
+    This function uses the openligadb API to extract the teams playing in the season
+    range as well as the total number of goals scored per season.
+    i: none
+    o: DataFrame
+    '''
     result = {}
-    # teamName: goals_home per season
-
     for x in range(15):
         season = 2010 + x
-        response = requests.get("https://api.openligadb.de/getmatchdata/bl1/" + str(season))
+        response = requests.get('https://api.openligadb.de/getmatchdata/bl1/' + \
+            str(season))
         response = response.json()
-
         for match in response:
             # get both teams, if new add as keys to result
-            teamName1 = match['team1']['teamName']
-            teamName2 = match['team2']['teamName']
-            if teamName1 not in result.keys():
-                result[teamName1] = {}
-            if teamName2 not in result.keys():
-                result[teamName2] = {}
-            if season not in result[teamName1].keys():
-                result[teamName1][season] = 0
-            if season not in result[teamName2].keys():
-                result[teamName2][season] = 0
-        
+            team_name_1 = match['team1']['teamName']
+            team_name_2 = match['team2']['teamName']
+            if team_name_1 not in result.keys():
+                result[team_name_1] = {}
+            if team_name_2 not in result.keys():
+                result[team_name_2] = {}
+            if season not in result[team_name_1].keys():
+                result[team_name_1][season] = 0
+            if season not in result[team_name_2].keys():
+                result[team_name_2][season] = 0
             # get all goals in match and team that scored them 
             goals = match['goals']
-            score1 = 0
-            score2 = 0
+            score_1 = 0
+            score_2 = 0
             for goal in goals:
-                score1new = goal['scoreTeam1'] 
-                score2new = goal['scoreTeam2']
-                if score1new != None and score2new != None:
-                    if score1new > score1:      # home goal team 1
-                        result[teamName1][season] += 1
-                        score1 = score1new
+                score_1_new = goal['scoreTeam1'] 
+                score_2_new = goal['scoreTeam2']
+                if score_1_new != None and score_2_new != None:
+                    if score_1_new > score_1:       # home goal team 1
+                        result[team_name_1][season] += 1
+                        score_1 = score_1_new
                     else:       # away goal team 2
-                        score2 = score2new
-
+                        score_2 = score_2_new
     df = pd.DataFrame.from_dict(result)
     df = df.transpose()
     return df
 
-df6 = df6()
+
+df6 = df_6()
+
 
 def plot_category_lollipop(grouped_df, category_key, value_key):
-    ''' source:
-    https://hi-artemii.medium.com/vertical-lollipop-chart-in-\
-    plotly-python-minimal-code-example-1e1bca0b1261
+    '''
+    This function constructs a lollipop graph for the given dataframe and keys
+    i: DataFrame and two keys
+    o: lollipop graph
     '''
     grouped_df = grouped_df.sort_values(by=value_key)
     fig_data = []
@@ -71,7 +76,7 @@ def plot_category_lollipop(grouped_df, category_key, value_key):
             x = grouped_df[value_key],
             y = grouped_df[category_key],
             mode = "markers+text",
-            marker = dict(color = "DarkBlue", size = 16.0),
+            marker = dict(color="DarkBlue", size=16.0),
             text = [f"{x}" for x in grouped_df[value_key]],
             textposition = "middle right",
             showlegend = False
@@ -82,36 +87,42 @@ def plot_category_lollipop(grouped_df, category_key, value_key):
     return fig
 
 
-
 ### Page Layout ###
 dash.register_page(__name__)
 
-layout = html.Div(
-    [
-        html.H3('Question 6: Which teams scored goals at home turf most often?'),
-        html.P('This question provides an overview for one season at a time, which can be\
-            chosen using the slider below between the seasons 2010 and 2024.\
-            The lollipop graph displays all teams, that played in the chosen season, \
-            as well as the number of goals each team scored during all home matches \
-            of the chosen season'),
-        html.P('Select the year to consider:'),
-        dcc.Slider(2010, 2024, 1, value=2010, id='component6'),
-        html.Div(dcc.Graph(id = 'graph6')), 
-    ], id = 'Q6Div')
+
+layout = html.Div([
+    html.H3('Question 6: Which teams scored goals at home turf most often?'),
+    html.P('This question provides an overview for one season at a time, which can be\
+        chosen using the slider below between the seasons 2010 and 2024.\
+        The lollipop graph displays all teams, that played in the chosen season, \
+        as well as the number of goals each team scored during all home matches \
+        of the chosen season'),
+    html.P('Select the year to consider:'),
+    dcc.Slider(2010, 2024, 1, value=2010, id='component6'),
+    html.Div(dcc.Graph(id = 'graph6')), 
+], id = 'Q6Div')
 
 
 ### Callback ###
 @callback(
-    Output(component_id = 'graph6', component_property = 'figure'),
-    Input(component_id = 'component6', component_property = 'value')
+    Output(component_id='graph6', component_property='figure'),
+    Input(component_id='component6', component_property='value')
 )
+
+
 def upgrade_graph_6(value_chosen):
-    dict6 = pd.DataFrame.to_dict(df6)       # convert df to dict
-    dict6 = dict6[value_chosen]
-    dict6_new = {}      # create new dict with correct labels
-    for key in dict6.keys():
-        if dict6[key] >= 0:  
-            dict6_new[key] = {'team': key, 'goals': dict6[key]}
-    df6_new = pd.DataFrame.from_dict(dict6_new).transpose()     # convert dict to df
-    fig6 = plot_category_lollipop(df6_new, category_key = 'team', value_key = 'goals')
-    return fig6
+    '''
+    This function computes the lollipop graph for the chosen year.
+    i: year
+    o: updated graph
+    '''
+    dict = pd.DataFrame.to_dict(df6)        # convert df to dict
+    dict = dict[value_chosen]
+    dict_new = {}       # create new dict with correct labels
+    for key in dict.keys():
+        if dict[key] >= 0:  
+            dict_new[key] = {'team': key, 'goals': dict[key]}
+    df_new = pd.DataFrame.from_dict(dict_new).transpose()      # convert dict to df
+    fig = plot_category_lollipop(df_new, category_key='team', value_key='goals')
+    return fig

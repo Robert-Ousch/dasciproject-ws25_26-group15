@@ -52,7 +52,7 @@ layout = html.Div([
             "We wanted to know if there are any teams out there which are particularly impacted by unfavorable weather conditions. " \
             "For this purpose, we're identifying a team's performance with the number of goals they scored during the match."),
             html.P("On this page, you will be able to answer this question for yourself. Move the slider below to see a distribution of scored " \
-            "goals for all selected teams, which only takes into account matches with a precipitation less than (top plot) or greater than (bottom plot) " \
+            "goals for all selected teams, which only takes into account matches with at most (top plot) or more than (bottom plot) " \
             "that much precipitation on the day of the match."),
             html.Div(
                 [html.P("Precipitation threshold (mm):"),

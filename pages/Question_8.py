@@ -128,16 +128,16 @@ layout = html.Div([
                 The heatmap is missing values for the combination of venue and team, \
                 where the team is the home team at the specific venue or\
                 where the team did not play any match at the specific venue. '),
-            html.P("Select upper and lower bounds for the venue capacity:"),
-            dcc.Checklist(
-                options = ['15000', '17810', '22467', '27599', '29564', '30000', '30164', '30210', '30662', \
-                '34034', '34700', '42358', '47069', '50076', '54057', '58000', '60469', '62278', '74667', \
-                '75024', '81365'],
-                value = ['15000', '17810', '22467', '27599', '29564', '30000', '30164', '30210', '30662', \
-                '34034', '34700', '42358', '47069', '50076', '54057', '58000', '60469', '62278', '74667', \
-                '75024', '81365'],
-                inline = True,
-                id = 'component8_1'),
+            #html.P("Select upper and lower bounds for the venue capacity:"),
+            #dcc.Checklist(
+                #options = ['15000', '17810', '22467', '27599', '29564', '30000', '30164', '30210', '30662', \
+                #'34034', '34700', '42358', '47069', '50076', '54057', '58000', '60469', '62278', '74667', \
+                #'75024', '81365'],
+                #value = ['15000', '17810', '22467', '27599', '29564', '30000', '30164', '30210', '30662', \
+                #'34034', '34700', '42358', '47069', '50076', '54057', '58000', '60469', '62278', '74667', \
+                #'75024', '81365'],
+                #inline = True,
+                #id = 'component8_1'),
             html.P("Select one or more teams to compare:"),
             dcc.Dropdown(
                 options = ['1. FC Heidenheim 1846', '1. FC Köln',	'1. FC Union Berlin', '1. FSV Mainz 05', \

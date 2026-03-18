@@ -19,10 +19,17 @@ For this project, the main data source is the API api.openligadb.de, which conta
 The lollipop plot is implemented based on https://hi-artemii.medium.com/vertical-lollipop-chart-in-plotly-python-minimal-code-example-1e1bca0b1261.
 
 ### Data pipeline
-todo Description of the data pipeline
+The following steps were taken to arrive at our solutions:
+1. Q1: Collection: Multiple API calls, getting the match data of the 1. Bundesliga for each year (10/11 - 24/25).
+       Selection: Only the teams and goals of each match are selected  
+       Integration/Transformation: Data is read from a json file and then put into dictionaires containing each teams scores for different time intervals (binning) as well as their total number of matches played and goals scored  
+       Cleaning: Data which is incomplete (i.e the minute the goals was scored is missing) is ignored, as it happens very rarely  
+       Visualization: Using plotly express, make bar charts comparing the calculated values for each timeslot and each team    
 
 ### Website build
-todo Short description on how the website was built and deployed. (e.g. How is the data connected?)
+The website is built and deployed using gunicorn and render, installing a recent python version and dependencies from our requirements.txt.  
+Using app.py as a frame around our actual content pages, we add every page using dash.register_page() to our page container and iteratively link to it with dcc.Link
+
 
 ### Website usage
 todo Showcase how to use your web application and the highlights

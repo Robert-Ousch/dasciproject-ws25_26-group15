@@ -29,18 +29,18 @@ RQ1
 - Visualization: Using plotly express, make bar charts comparing the calculated values for each timeslot and each team  
 
 RQ2
-- Collection: 
-- Selection: 
-- Cleaning: 
-- Integration/Transformation:
-- Visualization: 
+- Collection: We collected all matches from the 2004-2025 Bundesliga seasons as well as the involved teams from the openligadb api, then found the coordinates where  each match happened using the open-meteo geocoding api, then found the weather during each match using the open-meteo weather api.
+- Selection: We were only interested in the time, place and number of goals for each match. We also only looked at precipitation during each match, instead of all weather conditions. 
+- Cleaning: Single matches with missing location, time or result had to be discarded, though the location could often be inferred from the name of the first mentioned team, which is always the home team. Teams with less than 30 matches are also discarded entirely.
+- Integration/Transformation: The nested response structure from the openligadb api is flattened into a dictionary with 2d arrays, the result is saved as json for use in the website, so as to not cause an unnecessary flood of requests whenever it is started.
+- Visualization: The data is displayed as a box plot, showing the typical distribution of goals scored for each team during games with more or less than any given amount of precipitation.
 
 RQ3
-- Collection: 
-- Selection: 
-- Cleaning: 
-- Integration/Transformation:
-- Visualization: 
+- Collection: Same as RQ2
+- Selection: Same as RQ2
+- Cleaning: Same as RQ2, except we didn't discard teams with less than 30 matches
+- Integration/Transformation: The nested response structure from the openligadb api is flattened into a dictionary with 1d arrays, then saved as json. The matches are aggregated into buckets based on precipitation with a bucket size of 0.1mm.
+- Visualization: The average number of goals for matches in each respective bucket is displayed as a scatter plot, with a regression line highlighting a slight upward trend.
 
 RQ4
 - Collection: 

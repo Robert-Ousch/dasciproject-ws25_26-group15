@@ -142,7 +142,8 @@ layout = html.Div([
         multi = True,
         id = 'component8_2'),
     html.Div(dcc.Graph(id = 'graph8', figure = px.imshow(df8))) 
-], id = 'Q8Div')
+], id = 'Q8Div', style = {'background': '#f9f9f9', 'border': '1px solid #e0e0e0', 'borderRadius': '6px',
+        'padding': '14px 18px', 'marginBottom': '12px', 'marginTop': '20px'})
 
 
 ### Callback ###

@@ -147,7 +147,8 @@ layout = html.Div([
         'then dividing by amount of matches played for "Goals"\
         and total goals scored for "Percentage"'],
         id = 'Q1Details')],
-    id = 'Q1Div')
+    id = 'Q1Div', style = {'background': '#f9f9f9', 'border': '1px solid #e0e0e0', 'borderRadius': '6px',
+        'padding': '14px 18px', 'marginBottom': '12px', 'marginTop': '20px'})
 
 ### Callback ###
 @callback(

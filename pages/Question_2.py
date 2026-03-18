@@ -90,7 +90,8 @@ layout = html.Div([
         ),
     html.Div(children=dcc.Graph(id= "Q2_0", figure=px.bar())),
     html.Div(children=dcc.Graph(id= "Q2_1", figure=px.bar())),
-    ], id = 'Q2Div')
+    ], id = 'Q2Div', style = {'background': '#f9f9f9', 'border': '1px solid #e0e0e0', 'borderRadius': '6px',
+        'padding': '14px 18px', 'marginBottom': '12px', 'marginTop': '20px'})
 
 @callback(
     Output(component_id="Q2_0", component_property="figure"),

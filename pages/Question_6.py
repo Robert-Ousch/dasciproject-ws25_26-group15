@@ -103,7 +103,8 @@ layout = html.Div([
     html.P('Select the year to consider:'),
     dcc.Slider(2010, 2024, 1, value = 2010, id = 'component6'),
     html.Div(dcc.Graph(id = 'graph6')), 
-], id = 'Q6Div')
+], id = 'Q6Div', style = {'background': '#f9f9f9', 'border': '1px solid #e0e0e0', 'borderRadius': '6px',
+        'padding': '14px 18px', 'marginBottom': '12px', 'marginTop': '20px'})
 
 
 ### Callback ###

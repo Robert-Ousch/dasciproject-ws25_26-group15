@@ -177,7 +177,8 @@ layout = html.Div([
         style={'marginBottom': '10px'}
     ),
     dcc.Graph(id='q5_outcome_focus'),
-], id = 'Q5Div')
+], id = 'Q5Div', style = {'background': '#f9f9f9', 'border': '1px solid #e0e0e0', 'borderRadius': '6px',
+        'padding': '14px 18px', 'marginBottom': '12px', 'marginTop': '20px'})
 
 ### Callback ###
 @callback(

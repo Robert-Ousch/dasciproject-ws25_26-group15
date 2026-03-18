@@ -16,7 +16,6 @@ def ele_card(title, text):
 
 
 layout = html.Div([
-    html.H3('This is our Home page'),
     ele_card('Week 1: Topic brainstorming',
         'The three different topics we came up with were: '
         'Public transport, crime rates, football in Germany. '

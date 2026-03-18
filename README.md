@@ -20,32 +20,42 @@ The lollipop plot is implemented based on https://hi-artemii.medium.com/vertical
 
 ### Data pipeline
 We split our research questions up between the team members, so the data pipeline is not uniform for all questions. Following methods were used to utilize the data sources for each question:
-1. Q1: Collection: Multiple API calls, getting the match data of the 1. Bundesliga for each year (10/11 - 24/25).
-       Selection: Only the teams and goals of each match are selected  
-       Integration/Transformation: Data is read from a json file and then put into dictionaires containing each teams scores for different time intervals (binning) as well as their total number of matches played and goals scored  
-       Cleaning: Data which is incomplete (i.e the minute the goals was scored is missing) is ignored, as it happens very rarely  
-       Visualization: Using plotly express, make bar charts comparing the calculated values for each timeslot and each team  
-2.  Collection: 
-    Selection: 
-    Cleaning: 
-    Integration/Transformation:
-    Visualization: 
-3.  Collection: 
-    Selection: 
-    Cleaning: 
-    Integration/Transformation:
-    Visualization: 
-4.  Collection: 
-    Selection: 
-    Cleaning: 
-    Integration/Transformation:
-    Visualization: 
-5.  Collection: 
-    Selection: 
-    Cleaning: 
-    Integration/Transformation:
-    Visualization: 
-    
+
+RQ1
+- Collection: Multiple API calls, getting the match data of the 1. Bundesliga for each year (10/11 - 24/25).
+- Selection: Only the teams and goals of each match are selected  
+- Integration/Transformation: Data is read from a json file and then put into dictionaires containing each teams scores for different time intervals (binning) as well as their total number of matches played and goals scored  
+- Cleaning: Data which is incomplete (i.e the minute the goals was scored is missing) is ignored, as it happens very rarely  
+- Visualization: Using plotly express, make bar charts comparing the calculated values for each timeslot and each team  
+
+RQ2
+- Collection: 
+- Selection: 
+- Cleaning: 
+- Integration/Transformation:
+- Visualization: 
+
+RQ3
+- Collection: 
+- Selection: 
+- Cleaning: 
+- Integration/Transformation:
+- Visualization: 
+
+RQ4
+- Collection: 
+- Selection: 
+- Cleaning: 
+- Integration/Transformation:
+- Visualization: 
+
+RQ5
+- Collection: 
+- Selection: 
+- Cleaning: 
+- Integration/Transformation:
+- Visualization:  
+
 RQ6
 - Collection: We accessed the data source openligadb API and the match data for the seasons 2010 to 2024
 - Selection: Gathered teams playing in each season and their goals scored at home 

@@ -45,6 +45,7 @@ We split our research questions up between the team members, so the data pipelin
     Cleaning: 
     Integration/Transformation:
     Visualization: 
+    
 RQ6
 - Collection: We accessed the data source openligadb API and the match data for the seasons 2010 to 2024
 - Selection: Gathered teams playing in each season and their goals scored at home 
@@ -55,7 +56,7 @@ RQ6
 RQ7
 - Collection: We accessed the data source openligadb API and the match data for the seasons 2010 to 2024
 - Selection: Gathered teams paying in each season and their goals scored away, only selected the seven teams playing in the 1. Bundesliga in every of those seasons
-- Cleaning: We ignored all other teams, as they are not helpful in answering this question
+- Cleaning: We ignored all other teams, as they are not helpful in answering this question. The teams 'TSG 1899 Hoffenheim' and 'TSG Hoffenheim' were seen as one.
 - Integration/Transformation: Our function reads the data from a json file and then returns the selected data in a DataFrame
 - Visualization: This function is imported on the website, using plotly express to display the data in a line graph
 

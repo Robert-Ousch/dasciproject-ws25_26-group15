@@ -15,7 +15,8 @@ def df_8():
     i: none
     o: DataFrame
     '''
-    ### Map the team IDs of football.api to those of api.openliga
+
+    # Map the team IDs of football.api to those of api.openliga
     team_id_mapper = {
         '157': 40,      # München
         '158': None,    # Düsseldorf, not in 1bl
@@ -43,12 +44,13 @@ def df_8():
         '192': 65,      # Köln
         '1660': None    # not in 1bl
     }
-    ### get all venues of 2022-2024
+
+    # get all venues of 2022-2024
     venues = {}     # venueID according to openligadb: capacity, name
     for x in range(3):
         season = 2022 + x
         url = "https://v3.football.api-sports.io/teams?league=78&season=" + str(season)
-        response = requests.get(url, headers=header)
+        response = requests.get(url, headers = header)
         response = response.json()
         for team_venue in response ['response']:
             team_id = str(team_venue['team']['id'])
@@ -57,7 +59,8 @@ def df_8():
                 capacity = team_venue['venue']['capacity']
                 name = team_venue['team']['name']
                 venues[venue_id] = {'capacity': capacity, 'name': name}
-    ### get number of wins and matches per venue for all teams 
+
+    # get number of wins and matches per venue for all teams 
     wins = {}       # teamName: capacity: wins
     total = {}      # teamName: capacity: total
     result = {}     # teamName: capacity: winrate
@@ -67,6 +70,7 @@ def df_8():
         response = requests.get(url)
         response = response.json()
         for match in response:
+
             # get ID away team & venueID, if new add to result 
             team_id_2 = match['team2']['teamId']
             venue_id = match['team1']['teamId']
@@ -81,20 +85,24 @@ def df_8():
                     wins[team_name_2][capacity] = 0
                     total[team_name_2][capacity] = 0
                     result[team_name_2][capacity] = 0
+
                 # get number of wins and total matches
                 matchResult = match['matchResults'][0]
                 if matchResult['pointsTeam2'] >= 3:     # win away team
                     wins[team_name_2][capacity] += 1
                 total[team_name_2][capacity] += 1
+
     # compute win rate
     for team in result.keys():
         for venue in result[team].keys():
             nr_wins = wins[team][venue]
             nr_total = total[team][venue]
             result[team][venue] = nr_wins / nr_total
+
     # write result to file
     with open('data_Q8.txt', 'w') as file:
         file.write(json.dumps(result))
+
     df = pd.DataFrame.from_dict(result)
     return df
 
@@ -110,10 +118,12 @@ dash.register_page(__name__)
 
 layout = html.Div([
     html.H3('Question 8: How does the venue capacity influence the win rate of the \
-        away team for the seasons 2022-2024?'),
+        away team?'),
     html.P('We wanted to analyze, whether the venue capacity influences the \
 	    win rate of the away team.\
         Our source provides capacity information for the seasons 2022 – 2024. \
+        For the last 15 seasons, we analyzed this question for all teams,\
+        where we had  capacity information.\
         The dynamic heatmap displayes the win rate of the away team \
         for the selected venue capacities and teams.\
         The win rate is calculated as the matches won at the venue by the given\
@@ -131,14 +141,14 @@ layout = html.Div([
         value = ['FC Bayern München'],
         multi = True,
         id = 'component8_2'),
-    html.Div(dcc.Graph(id='graph8', figure=px.imshow(df8))) 
+    html.Div(dcc.Graph(id = 'graph8', figure = px.imshow(df8))) 
 ], id = 'Q8Div')
 
 
 ### Callback ###
 @callback(
-    Output(component_id='graph8', component_property='figure'),
-    Input(component_id='component8_2', component_property='value')
+    Output(component_id = 'graph8', component_property = 'figure'),
+    Input(component_id = 'component8_2', component_property = 'value')
 )
 
 
@@ -148,11 +158,11 @@ def upgrade_graph_8(team_chosen):
     i: array of  teams
     o: updated graph
     '''
-    fig = px.imshow(df8[team_chosen], color_continuous_scale='Plotly3', aspect='auto')      
-    fig.update_yaxes(nticks=21)
-    fig.update_xaxes(nticks=len(team_chosen))
+    fig = px.imshow(df8[team_chosen], color_continuous_scale = 'Plotly3', aspect = 'auto')      
+    fig.update_yaxes(nticks = 21)
+    fig.update_xaxes(nticks = len(team_chosen))
     fig.update_layout(
-        xaxis_title='Teams', 
-        yaxis_title='Venue capacity'
+        xaxis_title = 'Teams', 
+        yaxis_title = 'Venue capacity'
     )
     return fig

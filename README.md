@@ -43,18 +43,18 @@ RQ3
 - Visualization: The average number of goals for matches in each respective bucket is displayed as a scatter plot, with a regression line highlighting a slight upward trend.
 
 RQ4
-- Collection: 
-- Selection: 
-- Cleaning: 
-- Integration/Transformation:
-- Visualization: 
+- Collection: Bundesliga match data (2009–2024) fetched via openligaDB API, one request per season.
+- Selection: Only finished matches with both a halftime and a full-time result are considered.
+- Cleaning: Matches missing resultTypeID 1 or 2 are filtered out.
+- Integration/Transformation: halftime deficits and comeback wins are aggregated per team to calculate the comebackrate. Teams with fewer than 5 halftime deficits are excluded.Two seperate rankings are then computed(for pure comebackwins and comebackrate).
+- Visualization: Static slope chart shows the rank differences between both metrics. Dynamic dot plot shows the top 15 teams sorted by the selected metric.
 
 RQ5
-- Collection: 
-- Selection: 
-- Cleaning: 
-- Integration/Transformation:
-- Visualization:  
+- Collection: Same as in RQ4
+- Selection: Only finished matches with at least one goal within regular time.
+- Cleaning: Goals without a valid minute or outside 1–90 are ignored. Only goals that put the opponent in the lead for the first time are counted. 
+- Integration/Transformation: For each team the minute of the first lead-giving goal conceded is extracted and linked to the final match outcome. Minutes are grouped into 15-minute bins and outcomes are aggregated as absolute counts and percentages.
+- Visualization: stacked bar chart shows the outcome distribution per time bin.
 
 RQ6
 - Collection: We accessed the data source openligadb API and the match data for the seasons 2010 to 2024

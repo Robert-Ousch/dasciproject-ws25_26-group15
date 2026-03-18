@@ -56,7 +56,7 @@ def filter_prec(data, threshold):
       " of precipitation"))
 
 layout = html.Div([
-    html.H3("Question 2: How does high rainfall during a match influence" \
+    html.H3("Question 2: How does high rainfall during a match influence " \
     "the performance of certain German teams?"),
     html.P("Many football arenas in Germany do not (yet) have a roof, " \
     "exposing teams and spectators alike to the elements. " \
@@ -88,7 +88,7 @@ layout = html.Div([
             True,
             id="Q2_teams_filter")]
         ),
-    html.H4("A selection of bite-sized obervations:"),
+    html.H4("A selection of bite-sized observations:"),
     html.P("Some teams score significantly worse during high precipitation, such as:"),
     html.Div([html.Button(html.P("TSG Hoffenheim"), id="HoButton"), html.Button(html.P("1. FSV Mainz 05"), id="MaButton"), html.Button(html.P("Hertha BSC"), id="HeButton")]),
     html.P("Others perform a little better, including:"),

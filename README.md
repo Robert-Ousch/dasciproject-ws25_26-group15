@@ -45,21 +45,26 @@ We split our research questions up between the team members, so the data pipelin
     Cleaning: 
     Integration/Transformation:
     Visualization: 
-6.  Collection: We accessed the data source openligadb API and the match data for the seasons 2010 to 2024
-    Selection: Gathered teams playing in each season and their goals scored at home 
-    Cleaning: There was no data cleaning needed
-    Integration/Transformation: Our function reads the data from a json file and then returns the selected data in a DataFrame
-    Visualization: This function is imported on the website, using the function plot_category_lollipop to display the graph
-7.  Collection: We accessed the data source openligadb API and the match data for the seasons 2010 to 2024
-    Selection: Gathered teams paying in each season and their goals scored away, only selected the seven teams playing in the 1. Bundesliga in every of those seasons
-    Cleaning: We ignored all other teams, as they are not helpful in answering this question
-    Integration/Transformation: Our function reads the data from a json file and then returns the selected data in a DataFrame
-    Visualization: This function is imported on the website, using plotly express to display the data in a line graph
-8.  Collection: By hand, we mapped the team id of football API to those of openligadb API. This mapper as used to construct a dictionary of venues with their capacity (from football API) and the name of the home team (from openligadb API). Then accessed the data source openligadb API and the match data for the last 15 seasons.
-    Selection: Store won and total matches per away team, where we had a venue capacity for the match
-    Cleaning: Ignored all matches, where we had no venue capacity given
-    Integration/Transformation: The extracted data is used to compute the win rate per team and venue capacity, which is then stored in a text file
-    Visualization: This file is imported on the website, using plotly express to display the data in a heatmap 
+RQ6
+- Collection: We accessed the data source openligadb API and the match data for the seasons 2010 to 2024
+- Selection: Gathered teams playing in each season and their goals scored at home 
+- Cleaning: There was no data cleaning needed
+- Integration/Transformation: Our function reads the data from a json file and then returns the selected data in a DataFrame
+- Visualization: This function is imported on the website, using the function plot_category_lollipop to display the graph
+
+RQ7
+- Collection: We accessed the data source openligadb API and the match data for the seasons 2010 to 2024
+- Selection: Gathered teams paying in each season and their goals scored away, only selected the seven teams playing in the 1. Bundesliga in every of those seasons
+- Cleaning: We ignored all other teams, as they are not helpful in answering this question
+- Integration/Transformation: Our function reads the data from a json file and then returns the selected data in a DataFrame
+- Visualization: This function is imported on the website, using plotly express to display the data in a line graph
+
+RQ8
+- Collection: By hand, we mapped the team id of football API to those of openligadb API. This mapper as used to construct a dictionary of venues with their capacity (from football API) and the name of the home team (from openligadb API). Then accessed the data source openligadb API and the match data for the last 15 seasons.
+- Selection: Store won and total matches per away team, where we had a venue capacity for the match
+- Cleaning: Ignored all matches, where we had no venue capacity given
+- Integration/Transformation: The extracted data is used to compute the win rate per team and venue capacity, which is then stored in a text file
+- Visualization: This file is imported on the website, using plotly express to display the data in a heatmap 
 
 ### Website build
 The website is built and deployed using gunicorn and render, installing a recent python version and dependencies from our requirements.txt.  

@@ -11,9 +11,9 @@ Following research questions are answered:
 3. How does high rainfall during a match influence the total number of goals scored? 
 4. Over the span of the last 15 seasons, Which teams most frequently achieve comeback victories in the second half?
 5. Is there a statistically significant relationship between the timing of the first conceded goal and the probability of a match ending in defeat? 
-6. Which teams scored goals at home turf most often in 2024?
-7. During the last 15 seasons, when did FC Bayern München score goals most often in their opponent’s city (vs. home)?
-8. How does the venue capacity influence the win rate of the away team during the years 2022-2024?
+6. Which teams scored goals at home turf most often?
+7. During the last 15 seasons, when did FC Bayern München score goals most often in their opponent’s city?
+8. How does the venue capacity influence the win rate of the away team?
 
 For this project, the main data source is the API api.openligadb.de, which contains historic data of matches, teams and goals. The API v3.football.api-sports.io is used for the venue capacity. Finally, geocoding-api.open-meteo.com incluces weather data, more specifically rainfall and precipitation for given coordinates.
 The lollipop plot is implemented based on https://hi-artemii.medium.com/vertical-lollipop-chart-in-plotly-python-minimal-code-example-1e1bca0b1261.

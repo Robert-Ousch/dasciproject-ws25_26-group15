@@ -88,18 +88,96 @@ layout = html.Div([
             True,
             id="Q2_teams_filter")]
         ),
+    html.H4("A selection of bite-sized obervations:"),
+    html.P("Some teams score significantly worse during high precipitation, such as:"),
+    html.Div([html.Button(html.P("TSG Hoffenheim"), id="HoButton"), html.Button(html.P("1. FSV Mainz 05"), id="MaButton"), html.Button(html.P("Hertha BSC"), id="HeButton")]),
+    html.P("Others perform a little better, including:"),
+    html.Div([html.Button(html.P("SV Werder Bremen"), id="BrButton"), html.Button(html.P("RB Leipzig"), id="LeButton"), html.Button(html.P("Holstein Kiel"), id="KiButton")]),
     html.Div(children=dcc.Graph(id= "Q2_0", figure=px.bar())),
     html.Div(children=dcc.Graph(id= "Q2_1", figure=px.bar())),
     ], id = 'Q2Div', style = {'background': '#f9f9f9', 'border': '1px solid #e0e0e0', 'borderRadius': '6px',
         'padding': '14px 18px', 'marginBottom': '12px', 'marginTop': '20px'})
 
+
 @callback(
     Output(component_id="Q2_0", component_property="figure"),
     Output(component_id="Q2_1", component_property="figure"),
     Input(component_id="Q2_rain_filter", component_property="value"),
-    Input(component_id="Q2_teams_filter", component_property="value")
+    Input(component_id="Q2_teams_filter", component_property="value"),
 )
 def update_plots_q2(threshold, selection):
     '''callback handling the user's input'''
     data = dict(filter(lambda x: x[0] in selection, data_Q2.items()))
     return filter_prec(data, threshold)
+
+
+@callback(
+    Output(component_id="Q2_0", component_property="figure", allow_duplicate=True),
+    Output(component_id="Q2_1", component_property="figure", allow_duplicate=True),
+    Output(component_id="Q2_rain_filter", component_property="value", allow_duplicate=True),
+    Output(component_id="Q2_teams_filter", component_property="value", allow_duplicate=True),
+    Input(component_id="HoButton", component_property="n_clicks"),
+    prevent_initial_call = True
+)
+def apply_hoffenheim_button(n_clicks):
+    return *update_plots_q2(7, ["TSG Hoffenheim"]), 7, "TSG Hoffenheim"
+
+
+@callback(
+    Output(component_id="Q2_0", component_property="figure", allow_duplicate=True),
+    Output(component_id="Q2_1", component_property="figure", allow_duplicate=True),
+    Output(component_id="Q2_rain_filter", component_property="value", allow_duplicate=True),
+    Output(component_id="Q2_teams_filter", component_property="value", allow_duplicate=True),
+    Input(component_id="MaButton", component_property="n_clicks"),
+    prevent_initial_call = True
+)
+def apply_mainz_button(n_clicks):
+    return *update_plots_q2(7, ["1. FSV Mainz 05"]), 7, "1. FSV Mainz 05"
+
+
+@callback(
+    Output(component_id="Q2_0", component_property="figure", allow_duplicate=True),
+    Output(component_id="Q2_1", component_property="figure", allow_duplicate=True),
+    Output(component_id="Q2_rain_filter", component_property="value", allow_duplicate=True),
+    Output(component_id="Q2_teams_filter", component_property="value", allow_duplicate=True),
+    Input(component_id="HeButton", component_property="n_clicks"),
+    prevent_initial_call = True
+)
+def apply_hertha_button(n_clicks):
+    return *update_plots_q2(7, ["Hertha BSC"]), 7, "Hertha BSC"
+
+
+@callback(
+    Output(component_id="Q2_0", component_property="figure", allow_duplicate=True),
+    Output(component_id="Q2_1", component_property="figure", allow_duplicate=True),
+    Output(component_id="Q2_rain_filter", component_property="value", allow_duplicate=True),
+    Output(component_id="Q2_teams_filter", component_property="value", allow_duplicate=True),
+    Input(component_id="BrButton", component_property="n_clicks"),
+    prevent_initial_call = True
+)
+def apply_bremen_button(n_clicks):
+    return *update_plots_q2(5, ["SV Werder Bremen"]), 5, "SV Werder Bremen"
+
+
+@callback(
+    Output(component_id="Q2_0", component_property="figure", allow_duplicate=True),
+    Output(component_id="Q2_1", component_property="figure", allow_duplicate=True),
+    Output(component_id="Q2_rain_filter", component_property="value", allow_duplicate=True),
+    Output(component_id="Q2_teams_filter", component_property="value", allow_duplicate=True),
+    Input(component_id="LeButton", component_property="n_clicks"),
+    prevent_initial_call = True
+)
+def apply_leipzig_button(n_clicks):
+    return *update_plots_q2(5, ["RB Leipzig"]), 5, "RB Leipzig"
+
+
+@callback(
+    Output(component_id="Q2_0", component_property="figure", allow_duplicate=True),
+    Output(component_id="Q2_1", component_property="figure", allow_duplicate=True),
+    Output(component_id="Q2_rain_filter", component_property="value", allow_duplicate=True),
+    Output(component_id="Q2_teams_filter", component_property="value", allow_duplicate=True),
+    Input(component_id="KiButton", component_property="n_clicks"),
+    prevent_initial_call = True
+)
+def apply_holstein_button(n_clicks):
+    return *update_plots_q2(5, ["Holstein Kiel"]), 5, "Holstein Kiel"

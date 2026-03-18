@@ -78,8 +78,8 @@ def df1():
     number_of_goals = sum(total_goals.values())
 
     for interval in total_goals.keys(): 
-        total_gpi[interval] = round(total_goals[interval] / (total_matches*2), 4)
-        total_prc[interval] = round((total_goals[interval] / number_of_goals)*100, 4)
+        total_gpi[interval] = round(total_goals[interval] / (total_matches * 2), 4)
+        total_prc[interval] = round((total_goals[interval] / number_of_goals) * 100, 4)
 
     # Calculate statistics for every team
     for team in teams:
@@ -88,8 +88,9 @@ def df1():
         tg = sum(teams[team]['total'].values())
 
         for interval in teams[team]['total'].keys():
-            teams[team]['gpi'][interval] = round(teams[team]['total'][interval] / teams[team]['matches'],4)  
-            teams[team]['prc'][interval] = round((teams[team]['total'][interval] / tg)*100, 4)
+            # These don't work when split into two lines
+            teams[team]['gpi'][interval] = round(teams[team]['total'][interval] / teams[team]['matches'], 4)  
+            teams[team]['prc'][interval] = round((teams[team]['total'][interval] / tg) * 100, 4)
     
     # Create Bundesliga "team" with id 0 based on calculated stats.
     teams[0] = {'name':'Bundesliga', 'matches':total_matches,
@@ -131,9 +132,15 @@ layout = html.Div([
         '"Percentage" shows the percentage of goals\
         scored in that time interval'],
         id = 'Q1RadioTip'),
-    html.Div(dcc.Dropdown(df1['Team'][::7], value = ['Bundesliga'], multi = True, id = 'Q1TeamDropdown')),
-    html.Div(dcc.RadioItems(options = ['Goals', 'Percentage'], value = 'Goals', id = 'Q1Radio')),
-    html.Div(dcc.Graph(id = 'Q1Barchart', figure = fig1)),
+    html.Div(dcc.Dropdown(df1['Team'][::7],
+                          value = ['Bundesliga'],
+                          multi = True,
+                          id = 'Q1TeamDropdown')),
+    html.Div(dcc.RadioItems(options = ['Goals', 'Percentage'],
+                            value = 'Goals',
+                            id = 'Q1Radio')),
+    html.Div(dcc.Graph(id = 'Q1Barchart',
+                       figure = fig1)),
     html.P(['Calculated by summing all goals scored by a team\
         in a specific timeslot during the last 15 seasons,',
         html.Br(),

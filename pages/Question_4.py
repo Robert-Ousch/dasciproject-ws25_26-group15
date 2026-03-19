@@ -12,7 +12,8 @@ def get_matches(league, season):
     return requests.get(url).json()
 
 all_matches = []
-for season in [2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024]:
+for season in [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]:
+    # get every match from the 2009 to 2024 seasons
     for m in get_matches("bl1", season):
         all_matches.append({"season": season, "match": m})
 
@@ -21,6 +22,7 @@ for entry in all_matches:
     m = entry["match"]
     if not m.get("matchIsFinished"):
         continue
+    # extract halftime and fulltime results
     results = m.get("matchResults", [])
     ht = next((r for r in results if r["resultTypeID"] == 1), None)
     ft = next((r for r in results if r["resultTypeID"] == 2), None)
@@ -37,6 +39,7 @@ for entry in all_matches:
 df = pd.DataFrame(records)
 
 # Comeback wins
+# Count comeback wins per team (losing at HT, winning at FT)
 comeback_counts = {}
 for i, row in df.iterrows():
     if row["ht_team1"] < row["ht_team2"] and row["ft_team1"] > row["ft_team2"]:
@@ -44,6 +47,7 @@ for i, row in df.iterrows():
     if row["ht_team2"] < row["ht_team1"] and row["ft_team2"] > row["ft_team1"]:
         comeback_counts[row["team2"]] = comeback_counts.get(row["team2"], 0) + 1
 
+# DataFrame sorted by comeback wins (descending)
 comeback_df = (
     pd.DataFrame.from_dict(comeback_counts, orient="index", columns=["comeback_wins"])
     .sort_values("comeback_wins", ascending=False)
@@ -51,7 +55,7 @@ comeback_df = (
     .rename(columns={"index": "team"})
 )
 
-# Comeback rate
+# Aadd deficit count and calculate comeback rate per team
 deficit_counts = {}
 for i, row in df.iterrows():
     if row["ht_team1"] < row["ht_team2"]:
@@ -64,11 +68,13 @@ comeback_df["comeback_rate_%"] = (
     (comeback_df["comeback_wins"] / comeback_df["halftime_deficits"]) * 100
 ).round(1)
 
-# Slope df
+# Slope df: filter teams with at least 5 halftime deficits to avoid small sample bias
 slope_df = comeback_df[comeback_df["halftime_deficits"] >= 5].copy()
+# compute rankings by comeback wins and comeback rate separately
 slope_df["rank_wins"] = slope_df["comeback_wins"].rank(ascending=False, method='first').astype(int)
 slope_df["rank_rate"] = slope_df["comeback_rate_%"].rank(ascending=False, method='first').astype(int)
 
+# classify rank movement: blue = improved in rate, red = dropped, grey = same
 def classify(row):
     diff = row["rank_wins"] - row["rank_rate"]
     if diff > 1:  return "up",   "blue"
@@ -77,10 +83,11 @@ def classify(row):
 
 slope_df[["movement", "color"]] = slope_df.apply(classify, axis=1, result_type="expand")
 
+# build slope chart comparing rank by wins vs rank by comeback rate
 fig_q4 = go.Figure()
 
 for i, row in slope_df.iterrows():
-    #line between the 2 ranks(wincount and comeback %)
+    # lines between the 2 ranks(wincount and comeback %)
     fig_q4.add_trace(go.Scatter(
         x=[0, 1],
         y=[row["rank_wins"], row["rank_rate"]],
@@ -136,6 +143,8 @@ layout = html.Div([
     Output('q4_sort', 'figure'),
     Input('q4_radio', 'value')
 )
+
+# sort top 15 teams by selected metric and display as dot plot
 def update_q4(sort_by):
     filtered = slope_df.sort_values(sort_by, ascending=False).head(15)
     fig = px.scatter(filtered, x=sort_by, y='team', color=sort_by,

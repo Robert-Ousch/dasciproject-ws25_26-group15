@@ -65,11 +65,11 @@ for m in all_matches:
         new_s1 = g.get('scoreTeam1', score1)
         new_s2 = g.get('scoreTeam2', score2)
 
-        #Check if team 2 just took the lead for the first time
+        # check if team 2 just took the lead for the first time
         if new_s2 > score2 and new_s2 > new_s1 and first_against_team1 is None:
             first_against_team1 = minute
 
-        #vice versa with team 1
+        # vice versa with team 1
         if new_s1 > score1 and new_s1 > new_s2 and first_against_team2 is None:
             first_against_team2 = minute
 
@@ -99,19 +99,18 @@ for m in all_matches:
 
 df_q5 = pd.DataFrame(records)
 
-#assign each minute to a 15-minute time bin
+# assign each minute to a 15-minute time bin
 labels_q5 = ['1-15', '16-30', '31-45', '46-60', '61-75', '76-90']
 df_q5['time_bin'] = pd.cut(df_q5['minute'], bins=[0, 15, 30, 45, 60, 75, 90], labels=labels_q5)
 
-#how often each outcome occurs per time bin
+# how often each outcome occurs per time bin
 outcome_dist_q5 = df_q5.groupby(['time_bin', 'outcome'], observed=True).size().unstack(fill_value=0)
 outcome_dist_q5 = outcome_dist_q5.reindex(columns=['win', 'draw', 'loss'], fill_value=0)
 
-# Convert to percentages
+# convert to percentages
 outcome_pct_q5 = outcome_dist_q5.div(outcome_dist_q5.sum(axis=1), axis=0) * 100
 
-### Static Stacked Bar chart
-
+# build static stacked bar chart showing outcome distribution per time bin
 x = outcome_pct_q5.index.astype(str)
 
 graph = go.Figure()
@@ -130,7 +129,7 @@ graph.add_bar(
     y=outcome_pct_q5['draw'],
     name='Draw',
     marker_color='grey',
-    text=[f'{v:.0f}%' for v in outcome_pct_q5['draw']],  # ← hinzufügen
+    text=[f'{v:.0f}%' for v in outcome_pct_q5['draw']],  
     textposition='inside'
 )
 
@@ -162,15 +161,15 @@ layout = html.Div([
     'By analyzing match results across different time intervals, we can explore how the timing of falling behind affects ' \
     'the chances of winning, drawing, or losing.  The visualizations help reveal these patterns and highlight potential differences across match situations.'),
     dcc.Graph(
-        id='q5_outcome_focus',
+        id='q5_stacked_bar',
         figure=graph
     ),
     dcc.RadioItems(
         id='q5_outcome_filter',
         options=[
-            {'label': '  Win',  'value': 'win'},
-            {'label': '  Draw', 'value': 'draw'},
-            {'label': '  Loss', 'value': 'loss'},
+            {'label' : '  Win',  'value': 'win'},
+            {'label' : '  Draw', 'value': 'draw'},
+            {'label' : '  Loss', 'value': 'loss'},
         ],
         value='loss',
         inline=True,
@@ -185,6 +184,8 @@ layout = html.Div([
     Output('q5_outcome_focus', 'figure'),
     Input('q5_outcome_filter', 'value')
 )
+
+# render a bar chart showing the selected outcome rate per time bin.
 def update_q5_outcome(selected_outcome):
     color_map = {'win': 'green', 'draw': 'grey', 'loss': 'red'}
     x = outcome_pct_q5.index.astype(str).tolist()

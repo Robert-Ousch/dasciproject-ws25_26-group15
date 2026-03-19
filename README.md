@@ -6,13 +6,13 @@
 This project is about the 1. Bundesliga of football in Germany. This project discusses different influences on the number of goals or the victories of the teams, e.g. scored goals, the timeline of the match, the rainfall, the venue or the location at home vs. away.
 
 Following research questions are answered:
-1. During the last 15 seasons, inspecting 15 minute intervalls, when are the most goals scored during a match? How does this differ between teams?
-2. How does high rainfall during a match influence the win rate of certain German teams? 
-3. How does high rainfall during a match influence the total number of goals scored? 
-4. Over the span of the last 15 seasons, Which teams most frequently achieve comeback victories in the second half?
-5. Is there a statistically significant relationship between the timing of the first conceded goal and the probability of a match ending in defeat? 
+1. Inspecting 15 minute intervalls, when during the last 15 years (seasons 10/11 to 24/25) were the most goals scored?
+2. How does high rainfall during a match influence the performance of certain German teams?
+3. How does high precipitation during a match influence the total number of goals scored?
+4. Which teams are the best at staging comebacks after trailing at half time?
+5. How does the timing of the first conceded lead-giving goal affect the match outcome?
 6. Which teams scored goals at home turf most often?
-7. During the last 15 seasons, when did FC Bayern München score goals most often in their opponent’s city?
+7. During the last 15 years, when did each team score goals most often in their opponent`s city?
 8. How does the venue capacity influence the win rate of the away team?
 
 For this project, the main data source is the API api.openligadb.de, which contains historic data of matches, teams and goals. The API v3.football.api-sports.io is used for the venue capacity. Finally, geocoding-api.open-meteo.com incluces weather data, more specifically rainfall and precipitation for given coordinates.
@@ -83,7 +83,7 @@ Using app.py as a frame around our actual content pages, we add every page using
 
 
 ### Website usage
-Our homepage consists of a navigational menu, allowing you to choose between the pages of each research question or the section about our team. The homepage also displays the milestones and issues during the project timeline and the description of the data sources.
+Our website consists of a navigational menu, allowing you to choose between the pages of each research question, the homepage or the section about our team. The homepage displays the milestones and issues during the project timeline and the description of the data sources.
 Each research question is displayed on its own page with the title and explanatory text sections about the graph and the calculations. There is at least one dynamic visualization per question with dynamic elements such as dropdown menus, sliders or radio buttons. 
 In general, there are eight different graph types, for example bar charts and a stacked bar chart, boxplots, scatterplots. We also use a slope graph, a lollipop graph, a line graph and a heatmap to best visualize the data.
 

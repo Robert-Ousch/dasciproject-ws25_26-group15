@@ -121,20 +121,30 @@ fig_q4.update_layout(
 dash.register_page(__name__)
 
 layout = html.Div([
-            html.H3('Question 4: Which teams are the best at staging comebacks after trailing at half time?'),
-            dcc.Graph(id='q4_static', figure=fig_q4),
-            dcc.RadioItems(
-                id='q4_radio',
-                options=[
-                        {'label': '  Comeback Wins', 'value': 'comeback_wins'},
-                        {'label': '  Comeback Rate', 'value': 'comeback_rate_%'},
-                ],
-                value='comeback_wins',
-                inline=True,
-            ),
-            dcc.Graph(id='q4_sort'),
-        ], id='Q4Div', style = {'background': '#f9f9f9', 'border': '1px solid #e0e0e0', 'borderRadius': '6px',
-        'padding': '14px 18px', 'marginBottom': '12px', 'marginTop': '20px'})
+    html.H3('Question 4: Which teams are the best at staging comebacks after trailing at half time?'),
+    html.P(
+    'We wanted to analyze which teams are best at staging comebacks after trailing at halftime. '
+    'Our data covers 4,800 finished matches.'
+    'For each team, we calculated two metrics: the total number of comeback wins and the comeback rate, '
+    'which is defined as the share of matches a team won after being behind at halftime. '
+    'Teams with fewer than 5 halftime deficits were excluded to avoid misleading rates from small sample sizes. '
+    'The slope chart displays how each team ranks by comeback wins compared to their rank by comeback rate, '
+    'highlighting teams that outperform or underperform depending on the metric used. '
+    'The dynamic dot plot allows sorting the top 15 teams by either metric individually.'
+    ),
+    dcc.Graph(id='q4_static', figure=fig_q4),
+    dcc.RadioItems(
+        id='q4_radio',
+        options=[
+                {'label': '  Comeback Wins', 'value': 'comeback_wins'},
+                {'label': '  Comeback Rate', 'value': 'comeback_rate_%'},
+        ],
+        value='comeback_wins',
+        inline=True,
+    ),
+    dcc.Graph(id='q4_sort'),
+    ], id='Q4Div', style = {'background': '#f9f9f9', 'border': '1px solid #e0e0e0', 'borderRadius': '6px',
+    'padding': '14px 18px', 'marginBottom': '12px', 'marginTop': '20px'})
 
 
 ### Callback ###

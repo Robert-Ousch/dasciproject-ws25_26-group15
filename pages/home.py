@@ -41,7 +41,7 @@ layout = html.Div([
         'The Gunicorn start command was not correct and had to be changed and '
         'the wait times per deploy were quite long and made testing difficult. '),
     ele_card('Week 4: Final website and poster',
-        'Our website now contains at least one dynamic visualization an explanatory '
+        'Our website now contains at least one dynamic visualization and an explanatory '
         'section per research question and more than four different graph types. '
         'We chose six of our research questions for our scientific poster. '),
     ele_card('Description of data sources',

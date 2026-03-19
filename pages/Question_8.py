@@ -87,8 +87,8 @@ def df_8():
                     result[team_name_2][capacity] = 0
 
                 # get number of wins and total matches
-                matchResult = match['matchResults'][0]
-                if matchResult['pointsTeam2'] >= 3:     # win away team
+                matchResult = match['matchResults'][0] 
+                if matchResult['pointsTeam2'] > matchResult['pointsTeam1']:     # win away
                     wins[team_name_2][capacity] += 1
                 total[team_name_2][capacity] += 1
 
